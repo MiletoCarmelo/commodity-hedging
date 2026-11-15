@@ -1,0 +1,28 @@
+# Exchange calendars we define ourselves.
+# In the portfolio file use the name or the MIC (ISO 10383), e.g. calendar: [NYMEX, ICE-EU].
+# Any other MIC known by the `holidays` package also works (XLON, XETR...),
+# see available_calendars().
+
+NYMEX:
+  mic: XNYM
+  function: nymex_calendar
+  days: settlement
+  note: NYSE holidays as proxy for NYMEX settlement days
+
+CME-GLOBEX:
+  mic: XCME
+  function: cme_calendar
+  days: trading
+  note: trades on MLK, Presidents' Day... without a regular settlement, not for fixings
+
+ICE-EU:
+  mic: IFEU
+  function: ice_futures_europe_calendar
+  days: trading and settlement
+  note: ICE Futures Europe (Brent), closed only New Year, Good Friday, Christmas
+
+NYSE:
+  mic: XNYS
+  function: nyse_calendar
+  days: trading
+  note: New York Stock Exchange

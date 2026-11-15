@@ -1,0 +1,24 @@
+[project]
+name = "cmdty"
+version = "0.1.0"
+description = "Commodity Average Price Options with QuantLib: pricing, greeks and a delta hedging bot"
+requires-python = ">=3.10"
+dependencies = ["QuantLib>=1.30", "numpy>=1.24", "pydantic>=2.5", "holidays>=0.50", "pyyaml>=6"]
+
+[project.optional-dependencies]
+data = ["pandas>=2.0", "requests>=2.31"]
+notebooks = ["jupyterlab", "matplotlib", "pandas>=2.0"]
+dev = ["pytest", "pandas>=2.0", "requests>=2.31"]
+
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+
+[tool.setuptools.package-data]
+cmdty = ["market/*.yaml"]

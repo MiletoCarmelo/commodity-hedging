@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" xmlns:c2pa="http://c2pa.org/manifest">
+<defs>
+<marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a9a89e"/></marker>
+<marker id="arrA" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#199e70"/></marker>
+</defs>
+<rect width="1280" height="720" rx="18" fill="#1a1a19"/>
+<text x="40" y="58" fill="#f0efec" font-size="26" font-weight="700">cmdty</text>
+<text x="128" y="58" fill="#a9a89e" font-size="20" font-weight="400">from a trade file to a hedged P&amp;L</text>
+<text x="40" y="86" fill="#a9a89e" font-size="13.5">Trade, market and model are kept apart. The bot only talks to a MarketSource, so the same loop runs on simulated, historical or live data.</text>
+<text x="40" y="126" fill="#3987e5" font-size="12" font-weight="700" letter-spacing="1.6">INPUTS</text>
+<text x="410" y="126" fill="#d95926" font-size="12" font-weight="700" letter-spacing="1.6">PRICING AND RISK</text>
+<text x="860" y="126" fill="#199e70" font-size="12" font-weight="700" letter-spacing="1.6">HEDGING BOT  ·  EVERY BUSINESS DAY</text>
+<rect x="40" y="140" width="300" height="76" rx="10" fill="#242422" stroke="#34342f"/>
+<rect x="40" y="154" width="4" height="48" rx="2" fill="#3987e5"/>
+<text x="62" y="173" fill="#f0efec" font-size="16" font-weight="600" font-family="'JetBrains Mono', Menlo, Consolas, monospace">portfolio.yaml</text>
+<text x="62" y="196" fill="#a9a89e" font-size="12.5">trades: legs, strike, pricing month</text>
+<rect x="40" y="236" width="300" height="76" rx="10" fill="#242422" stroke="#34342f"/>
+<rect x="40" y="250" width="4" height="48" rx="2" fill="#3987e5"/>
+<text x="62" y="269" fill="#f0efec" font-size="16" font-weight="600" font-family="'JetBrains Mono', Menlo, Consolas, monospace">calendars.yaml</text>
+<text x="62" y="292" fill="#a9a89e" font-size="12.5">exchanges by name or MIC code</text>
+<rect x="40" y="332" width="300" height="76" rx="10" fill="#242422" stroke="#34342f"/>
+<rect x="40" y="346" width="4" height="48" rx="2" fill="#3987e5"/>
+<text x="62" y="365" fill="#f0efec" font-size="16" font-weight="600">MarketSource</text>
+<text x="62" y="388" fill="#a9a89e" font-size="12.5">snapshot(date): simulated, historical, live</text>
+<rect x="40" y="428" width="300" height="76" rx="10" fill="#242422" stroke="#34342f"/>
+<rect x="40" y="442" width="4" height="48" rx="2" fill="#3987e5"/>
+<text x="62" y="461" fill="#f0efec" font-size="16" font-weight="600">Market data</text>
+<text x="62" y="484" fill="#a9a89e" font-size="12.5">Yahoo forwards, vol and correlation</text>
+<rect x="410" y="140" width="380" height="76" rx="10" fill="#242422" stroke="#34342f"/>
+<rect x="410" y="154" width="4" height="48" rx="2" fill="#d95926"/>
+<text x="432" y="173" fill="#f0efec" font-size="16" font-weight="600">Portfolio of APOs</text>
+<text x="432" y="196" fill="#a9a89e" font-size="12.5">weighted legs and averaging schedule</text>
+<rect x="410" y="236" width="380" height="76" rx="10" fill="#242422" stroke="#34342f"/>
+<rect x="410" y="250" width="4" height="48" rx="2" fill="#d95926"/>
+<text x="432" y="269" fill="#f0efec" font-size="16" font-weight="600">MarketData</text>
+<text x="432" y="292" fill="#a9a89e" font-size="12.5">forwards, vols, correlations, fixings, rate</text>
+<rect x="410" y="332" width="380" height="108" rx="10" fill="#242422" stroke="#34342f"/>
+<rect x="410" y="346" width="4" height="80" rx="2" fill="#d95926"/>
+<text x="432" y="365" fill="#f0efec" font-size="16" font-weight="600">Pricer</text>
+<text x="490" y="365" fill="#a9a89e" font-size="12.5">a model applied to a market snapshot</text>
+<rect x="432" y="382" width="80" height="24" rx="12" fill="#d95926" fill-opacity="0.16" stroke="#d95926" stroke-opacity="0.5"/>
+<text x="472" y="398" fill="#f0efec" font-size="12" text-anchor="middle">Bachelier</text>
+<rect x="519.6" y="382" width="43" height="24" rx="12" fill="#d95926" fill-opacity="0.16" stroke="#d95926" stroke-opacity="0.5"/>
+<text x="541" y="398" fill="#f0efec" font-size="12" text-anchor="middle">Kirk</text>
+<rect x="570.2" y="382" width="94" height="24" rx="12" fill="#d95926" fill-opacity="0.16" stroke="#d95926" stroke-opacity="0.5"/>
+<text x="617" y="398" fill="#f0efec" font-size="12" text-anchor="middle">Monte Carlo</text>
+<text x="432" y="427" fill="#a9a89e" font-size="11.5">QuantLib engines, before and during the averaging month</text>
+<rect x="410" y="458" width="380" height="76" rx="10" fill="#242422" stroke="#34342f"/>
+<rect x="410" y="472" width="4" height="48" rx="2" fill="#d95926"/>
+<text x="432" y="491" fill="#f0efec" font-size="16" font-weight="600">Risk</text>
+<text x="432" y="514" fill="#a9a89e" font-size="12.5">greeks by bump and reprice: Δ, Γ, cross Γ, ν, Θ</text>
+<path d="M340,178.0 L406,178.0" fill="none" stroke="#a9a89e" stroke-width="1.6" marker-end="url(#arr)"/>
+<path d="M340,274.0 C380,274.0 366,190.0 406,190.0" fill="none" stroke="#a9a89e" stroke-width="1.6" marker-end="url(#arr)"/>
+<path d="M340,370.0 C380,370.0 366,274.0 406,274.0" fill="none" stroke="#a9a89e" stroke-width="1.6" marker-end="url(#arr)"/>
+<path d="M340,466.0 C380,466.0 366,286.0 406,286.0" fill="none" stroke="#a9a89e" stroke-width="1.6" marker-end="url(#arr)"/>
+<path d="M600.0,216 L600.0,232" fill="none" stroke="#a9a89e" stroke-width="1.6" marker-end="url(#arr)"/>
+<path d="M600.0,312 L600.0,328" fill="none" stroke="#a9a89e" stroke-width="1.6" marker-end="url(#arr)"/>
+<path d="M600.0,440 L600.0,454" fill="none" stroke="#a9a89e" stroke-width="1.6" marker-end="url(#arr)"/>
+<rect x="860" y="140" width="380" height="394" rx="14" fill="#199e70" fill-opacity="0.06" stroke="#199e70" stroke-opacity="0.45"/>
+<line x1="898" y1="186" x2="898" y2="482" stroke="#199e70" stroke-opacity="0.5" stroke-width="2"/>
+<circle cx="898" cy="186" r="15" fill="#1a1a19" stroke="#199e70" stroke-width="2"/>
+<text x="898" y="191" fill="#f0efec" font-size="13" font-weight="700" text-anchor="middle">1</text>
+<text x="930" y="184" fill="#f0efec" font-size="16" font-weight="600">Snapshot</text>
+<text x="930" y="204" fill="#a9a89e" font-size="12.5">end-of-day market from the source</text>
+<circle cx="898" cy="260" r="15" fill="#1a1a19" stroke="#199e70" stroke-width="2"/>
+<text x="898" y="265" fill="#f0efec" font-size="13" font-weight="700" text-anchor="middle">2</text>
+<text x="930" y="258" fill="#f0efec" font-size="16" font-weight="600">Book risk</text>
+<text x="930" y="278" fill="#a9a89e" font-size="12.5">PV and deltas, netted per underlying</text>
+<circle cx="898" cy="334" r="15" fill="#1a1a19" stroke="#199e70" stroke-width="2"/>
+<text x="898" y="339" fill="#f0efec" font-size="13" font-weight="700" text-anchor="middle">3</text>
+<text x="930" y="332" fill="#f0efec" font-size="16" font-weight="600">Hedge</text>
+<text x="930" y="352" fill="#a9a89e" font-size="12.5">target futures lots, trading costs</text>
+<circle cx="898" cy="408" r="15" fill="#1a1a19" stroke="#199e70" stroke-width="2"/>
+<text x="898" y="413" fill="#f0efec" font-size="13" font-weight="700" text-anchor="middle">4</text>
+<text x="930" y="406" fill="#f0efec" font-size="16" font-weight="600">P&amp;L</text>
+<text x="930" y="426" fill="#a9a89e" font-size="12.5">option + futures − costs</text>
+<circle cx="898" cy="482" r="15" fill="#1a1a19" stroke="#199e70" stroke-width="2"/>
+<text x="898" y="487" fill="#f0efec" font-size="13" font-weight="700" text-anchor="middle">5</text>
+<text x="930" y="480" fill="#f0efec" font-size="16" font-weight="600">Explain</text>
+<text x="930" y="500" fill="#a9a89e" font-size="12.5">delta, gamma, theta, vega, unexplained</text>
+<path d="M1174,482 C1218,482 1218,482 1218,452 L1218,216 C1218,186 1218,186 1174,186" fill="none" stroke="#199e70" stroke-width="1.6" marker-end="url(#arrA)" stroke-dasharray="5 5"/>
+<text x="1226" y="334.0" fill="#199e70" font-size="12" font-weight="600" text-anchor="middle" transform="rotate(90 1226 334.0)">next day</text>
+<path d="M790,274.0 C830,274.0 816,186 856,186" fill="none" stroke="#a9a89e" stroke-width="1.6" marker-end="url(#arr)"/>
+<path d="M790,496.0 C830,496.0 816,260 856,260" fill="none" stroke="#a9a89e" stroke-width="1.6" marker-end="url(#arr)"/>
+<path d="M1050.0,534 L1050.0,564" fill="none" stroke="#a9a89e" stroke-width="1.6" marker-end="url(#arr)"/>
+<rect x="860" y="568" width="380" height="76" rx="10" fill="#242422" stroke="#34342f"/>
+<rect x="860" y="582" width="4" height="48" rx="2" fill="#c98500"/>
+<text x="882" y="601" fill="#f0efec" font-size="16" font-weight="600">HedgeRun</text>
+<text x="882" y="624" fill="#a9a89e" font-size="12.5">one row per day: positions, P&amp;L, explain</text>
+<rect x="410" y="568" width="380" height="76" rx="10" fill="#242422" stroke="#34342f"/>
+<rect x="410" y="582" width="4" height="48" rx="2" fill="#c98500"/>
+<text x="432" y="601" fill="#f0efec" font-size="16" font-weight="600" font-family="'JetBrains Mono', Menlo, Consolas, monospace">notebook 03</text>
+<text x="432" y="624" fill="#a9a89e" font-size="12.5">P&amp;L, explain, implied vs realised vol, hedge frequency</text>
+<path d="M860,606 L794,606" fill="none" stroke="#a9a89e" stroke-width="1.6" marker-end="url(#arr)"/>
+<text x="40" y="694" fill="#a9a89e" font-size="12">Python · QuantLib · pydantic · numpy</text>
+<metadata><c2pa:manifest>AAAWgmp1bWIAAAAeanVtZGMycGEAEQAQgAAAqgA4m3EDYzJwYQAAABZcanVtYgAAAEdqdW1kYzJtYQARABCAAACqADibcQN1cm46YzJwYTo0NTAzNDRhNS1mMTNhLTQ3NDgtOTU0YS03YmQ0YmQ3ODM1NGQAAAADl2p1bWIAAAApanVtZGMyYXMAEQAQgAAAqgA4m3EDYzJwYS5hc3NlcnRpb25zAAAAALxqdW1iAAAARGp1bWRjYm9yABEAEIAAAKoAOJtxE2MycGEuaW5ncmVkaWVudC52MwAAAAAYYzJzaFnqpOL5mk85xyEwLLX5FxwAAABwY2JvcqNpZGM6Zm9ybWF0bWltYWdlL3N2Zyt4bWxqaW5zdGFuY2VJRHgseG1wOmlpZDoxNjJkMjQ3Zi1iZDBkLTQ1M2UtYjNjYS02YjA1YTU5M2YwY2FscmVsYXRpb25zaGlwaHBhcmVudE9mAAAB4mp1bWIAAABBanVtZGNib3IAEQAQgAAAqgA4m3ETYzJwYS5hY3Rpb25zLnYyAAAAABhjMnNoFgib4Hj/DeuecRB21SV5mgAAAZljYm9yomdhY3Rpb25zgqJmYWN0aW9ua2MycGEub3BlbmVkanBhcmFtZXRlcnOha2luZ3JlZGllbnRzgaJjdXJseC1zZWxmI2p1bWJmPWMycGEuYXNzZXJ0aW9ucy9jMnBhLmluZ3JlZGllbnQudjNkaGFzaFggCNrVJYcj9P84r2vir4Hls8AHetIj9OtwprKAqqmGVMqkZmFjdGlvbngdY29tLmFudGhyb3BpYy5jbGF1ZGUucHJvdmlkZWRqcGFyYW1ldGVyc6F4H2NvbS5hbnRocm9waWMub3JpZ2luLWNvbmZpZGVuY2VndW5rbm93bmtkZXNjcmlwdGlvbnhmQ2xhdWRlIHByb3ZpZGVkIHRoaXMgZmlsZSBhdCB0aGUgcmVxdWVzdCBvZiBhIHVzZXIgYW5kIG1heSBoYXZlIGNyZWF0ZWQgb3IgbW9kaWZpZWQgdGhlIGZpbGUgY29udGVudHMubXNvZnR3YXJlQWdlbnShZG5hbWVmQ2xhdWRlcmFsbEFjdGlvbnNJbmNsdWRlZPUAAADIanVtYgAAAEBqdW1kY2JvcgARABCAAACqADibcRNjMnBhLmhhc2guZGF0YQAAAAAYYzJzaDI75nWTH4P/addUOFT6YH4AAACAY2JvcqVjYWxnZnNoYTI1NmNwYWRMAAAAAAAAAAAAAAAAZGhhc2hYIGyQFjVNn1LAvUov6nqZ5MFZVfjVrUk1de8zGOaxW3BHZG5hbWVuanVtYmYgbWFuaWZlc3RqZXhjbHVzaW9uc4GiZXN0YXJ0GSU2Zmxlbmd0aBkeBAAAAj5qdW1iAAAAJ2p1bWRjMmNsABEAEIAAAKoAOJtxA2MycGEuY2xhaW0udjIAAAACD2Nib3KlY2FsZ2ZzaGEyNTZpc2lnbmF0dXJleE1zZWxmI2p1bWJmPS9jMnBhL3VybjpjMnBhOjQ1MDM0NGE1LWYxM2EtNDc0OC05NTRhLTdiZDRiZDc4MzU0ZC9jMnBhLnNpZ25hdHVyZWppbnN0YW5jZUlEeCx4bXA6aWlkOmVkNjY2MGJjLWI2ZDMtNDQzNy1iZjg2LTAxNWRiNDI5NGQ2ZXJjcmVhdGVkX2Fzc2VydGlvbnODomN1cmx4LXNlbGYjanVtYmY9YzJwYS5hc3NlcnRpb25zL2MycGEuaW5ncmVkaWVudC52M2RoYXNoWCAI2tUlhyP0/ziva+KvgeWzwAd60iP063CmsoCqqYZUyqJjdXJseCpzZWxmI2p1bWJmPWMycGEuYXNzZXJ0aW9ucy9jMnBhLmFjdGlvbnMudjJkaGFzaFgg15WzwfTr5vvAyISrAgSHVnF+dLZbO+SH/xxdL1oIK/qiY3VybHgpc2VsZiNqdW1iZj1jMnBhLmFzc2VydGlvbnMvYzJwYS5oYXNoLmRhdGFkaGFzaFggYZ4HZLgrXjGZOSM4bqFMp0wS07ChMiS20GpHPqPnXcd0Y2xhaW1fZ2VuZXJhdG9yX2luZm+jZG5hbWVvQW50aHJvcGljIEZpbGVzZ3ZlcnNpb25lMS4wLjBrc3BlY1ZlcnNpb25lMi40LjAAABA4anVtYgAAAChqdW1kYzJjcwARABCAAACqADibcQNjMnBhLnNpZ25hdHVyZQAAABAIY2JvctKEWQISogEmGCFZAgowggIGMIIBjaADAgECAhRA5aAK7sI50L64g/oGQgU9Z1UTADAKBggqhkjOPQQDAzBJMRcwFQYDVQQKEw5BbnRocm9waWMsIFBCQzEuMCwGA1UEAxMlQW50aHJvcGljIENvbnRlbnQgQ3JlZGVudGlhbHMgUm9vdCBDQTAeFw0yNjA4MDcxODQzNTZaFw0yODA4MDYxOTQzNTZaMEQxFzAVBgNVBAoTDkFudGhyb3BpYywgUEJDMSkwJwYDVQQDEyBBbnRocm9waWMgQ2xhdWRlIENvbnRlbnQgU2lnbmluZzBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABJh6CmvLUBgFFNU0vUKlOVtE6djd17L5SuwX0LemFisBM3dkd/3cyjxFA3Qo5S46fX0/ihY0VZ7mfb9KF703t5OjWDBWMA4GA1UdDwEB/wQEAwIHgDAVBgNVHSUEDjAMBgorBgEEAYPoXgIBMAwGA1UdEwEB/wQCMAAwHwYDVR0jBBgwFoAUzlHiBIFOZFsj+OPEz5o+nMHXXMIwCgYIKoZIzj0EAwMDZwAwZAIwMXMdFJ4BetLLVY7ORuE9noqbbAZOZn/aArXyTwFAZfKrPzxF2vPoJNf1+UCdg1XGAjBwX1zd9WGqYkqmL5SFqw1QySjr1zJfpJM9+1rdDwSPLMOPOjKuiXjoU/pUUeG9RwmhY3BhZFkNngAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPZYQON/GfUYBGe5qDm4laH9nmhxUim+zvL/BFQt88zb2xsdzh7f+Yyk5hG20hCT8GjKQh6D4/YAUx7C5dAomNB9tFE=</c2pa:manifest></metadata></svg>
