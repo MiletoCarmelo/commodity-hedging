@@ -104,7 +104,11 @@ class GreekCalculator:
     # --- theta ---
     def theta(self, days: int = 1) -> float:
         """PV change when `days` calendar days pass, same quotes."""
-        return self.pv(self.market.roll_to(self.market.today + days)) - self.pv()
+        return self.theta_to(self.market.today + days)
+
+    def theta_to(self, date) -> float:
+        """PV change from today to `date`, same quotes (the bot uses the next business day)."""
+        return self.pv(self.market.roll_to(date)) - self.pv()
 
     # --- rho ---
     def rho(self, bump: float = 0.0001) -> float:

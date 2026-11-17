@@ -3,7 +3,8 @@ import pytest
 import QuantLib as ql
 
 from cmdty import MarketData, Portfolio, Quote, load_portfolio
-from cmdty.hedging import HedgeSettings, HedgingBot, book_risk, target_lots
+from cmdty.hedging import HedgeSettings, HedgingBot, target_lots
+from cmdty.risk import book_risk
 from cmdty.market import SimulatedSource, any_exchange_calendar
 from cmdty.pricer import Pricer
 

@@ -1,31 +1,35 @@
-"""Risk of the whole portfolio, netted by underlying: what the bot has to hedge."""
+"""Greeks of a whole portfolio: each trade's greeks (risk/greeks.py) times its signed
+quantity, added up per underlying. Nothing is repriced here that greeks.py does not already do."""
 
 from dataclasses import dataclass
 from itertools import combinations_with_replacement
+from typing import TYPE_CHECKING
 
 import QuantLib as ql
 
 from ..portfolio import Portfolio, Trade
-from ..pricer import Pricer
+
+if TYPE_CHECKING:  # avoid a circular import, only for type hints
+    from ..pricer import Pricer
 
 # =============================================================================
 # 1. One trade
 # =============================================================================
 
 
-def _is_alive(trade: Trade, pricer: Pricer) -> bool:
+def _is_alive(trade: Trade, pricer: "Pricer") -> bool:
     """Still has a value: the payoff has not been paid yet."""
     return pricer.market.today <= trade.instrument.schedule.pay_date
 
 
-def trade_pv(trade: Trade, pricer: Pricer) -> float:
+def trade_pv(trade: Trade, pricer: "Pricer") -> float:
     """PV of the position in $: quantity (signed) x PV per bbl."""
     if not _is_alive(trade, pricer):
         return 0.0
     return trade.instrument.quantity * pricer.pv(trade.instrument)
 
 
-def trade_deltas(trade: Trade, pricer: Pricer) -> dict[str, float]:
+def trade_deltas(trade: Trade, pricer: "Pricer") -> dict[str, float]:
     """$ change per +1 $/bbl on each underlying, i.e. an exposure in bbl."""
     if not _is_alive(trade, pricer):
         return {}
@@ -33,7 +37,7 @@ def trade_deltas(trade: Trade, pricer: Pricer) -> dict[str, float]:
     return {u: apo.quantity * d for u, d in pricer.deltas(apo).items()}
 
 
-def paid_cash(trade: Trade, before: Pricer, after: Pricer) -> float:
+def paid_cash(trade: Trade, before: "Pricer", after: "Pricer") -> float:
     """Cash received if the trade pays between the two dates, 0 otherwise."""
     if _is_alive(trade, before) and not _is_alive(trade, after):
         return trade.instrument.quantity * after.expected_payoff(trade.instrument)
@@ -54,7 +58,7 @@ class BookRisk:
     pv_by_trade: dict[str, float]
 
 
-def book_risk(portfolio: Portfolio, pricer: Pricer) -> BookRisk:
+def book_risk(portfolio: Portfolio, pricer: "Pricer") -> BookRisk:
     """Price every trade and add up the deltas per underlying (netting)."""
     deltas: dict[str, float] = {}
     pvs = {}
@@ -66,7 +70,7 @@ def book_risk(portfolio: Portfolio, pricer: Pricer) -> BookRisk:
 
 
 # =============================================================================
-# 3. Second-order greeks, for the P&L explain
+# 3. Second-order greeks and theta, for the P&L explain
 # =============================================================================
 
 
@@ -86,7 +90,7 @@ class BookGreeks:
         return total
 
 
-def book_greeks(portfolio: Portfolio, pricer: Pricer) -> BookGreeks:
+def book_greeks(portfolio: Portfolio, pricer: "Pricer") -> BookGreeks:
     """Gammas and vegas of every live trade, added up."""
     gamma: dict[tuple[str, str], float] = {}
     vega: dict[str, float] = {}
@@ -101,12 +105,10 @@ def book_greeks(portfolio: Portfolio, pricer: Pricer) -> BookGreeks:
     return BookGreeks(gamma=gamma, vega=vega)
 
 
-def book_theta(portfolio: Portfolio, before: Pricer, today: ql.Date) -> float:
-    """PV change from time passing only: yesterday's market moved to today's date."""
-    rolled = before.with_market(before.market.roll_to(today))
-    return sum(trade_pv(t, rolled) - trade_pv(t, before) for t in portfolio)
-
-
-def target_lots(deltas: dict[str, float], lot_size: float) -> dict[str, int]:
-    """Futures position that cancels the deltas, rounded to whole lots."""
-    return {u: -round(d / lot_size) for u, d in deltas.items()}
+def book_theta(portfolio: Portfolio, before: "Pricer", today: ql.Date) -> float:
+    """PV change from time passing only, yesterday's market moved to `today`."""
+    return sum(
+        t.instrument.quantity * before.risk(t.instrument).theta_to(today)
+        for t in portfolio
+        if _is_alive(t, before)
+    )

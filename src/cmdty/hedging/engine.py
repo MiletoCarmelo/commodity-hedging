@@ -11,7 +11,7 @@ import QuantLib as ql
 from ..market.sources import MarketSource
 from ..portfolio import Portfolio
 from ..pricer import Pricer
-from .book import book_greeks, book_risk, book_theta, paid_cash, target_lots
+from ..risk.book import book_greeks, book_risk, book_theta, paid_cash
 from .explain import explain_day
 from .settings import HedgeSettings
 
@@ -78,7 +78,17 @@ class HedgeRun:
 
 
 # =============================================================================
-# 2. Bot
+# 2. Hedge decision
+# =============================================================================
+
+
+def target_lots(deltas: dict[str, float], lot_size: float) -> dict[str, int]:
+    """Futures position that cancels the deltas, rounded to whole lots."""
+    return {u: -round(d / lot_size) for u, d in deltas.items()}
+
+
+# =============================================================================
+# 3. Bot
 # =============================================================================
 
 

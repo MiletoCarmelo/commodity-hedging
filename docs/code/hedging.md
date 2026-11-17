@@ -29,17 +29,11 @@ result.to_frame()          # one row per day
 - `HedgeSettings`: `model`, `lot_size` (1000 bbl), `cost_per_lot`, `rebalance_every` (days).
   Desk choices, so they live here and not in the portfolio file.
 
-## book.py
-
-- `trade_pv`, `trade_deltas`: one trade, signed by its quantity, 0 once paid
-- `book_greeks`, `book_theta`: gammas (with cross terms), vegas and theta of the book, for the explain
-- `paid_cash`: payoff received when a trade passes its pay date
-- `book_risk(portfolio, pricer)`: PV and deltas of the whole book, netted per underlying
-- `target_lots(deltas, lot_size)`: futures that cancel the deltas
-
 ## engine.py
 
-- `HedgingBot(portfolio, source, settings).run()`: the loop above, returns a `HedgeRun`
+- `target_lots(deltas, lot_size)`: futures that cancel the deltas, the only decision of the bot
+- `HedgingBot(portfolio, source, settings).run()`: the loop above, returns a `HedgeRun`.
+  It reads the book risk from [risk/book.py](risk.md#bookpy) and decides what to trade
 - `Day`: everything about one date (forwards, PV, deltas, position, trades, P&L lines)
 - `HedgeRun`: the list of days, `total_pnl`, `cumulative_pnl()`, `to_frame()`
 
