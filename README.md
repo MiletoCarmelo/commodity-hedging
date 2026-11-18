@@ -11,6 +11,11 @@ crack is the one walked through in detail below.
 - **Risk**: greeks by bump and reprice, crack and outright deltas, cross gamma
 - **Hedging bot**: a portfolio file, a daily loop that hedges with futures, P&L and P&L explain
 
+## Goals and results
+
+Set up like an experiment: goals, hypotheses tested, results, problems met and limitations
+are listed in [docs/Study.md](docs/Study.md).
+
 ## Architecture
 
 The trade, the market and the model are kept apart. A trade never changes, the market is a
