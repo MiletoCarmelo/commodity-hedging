@@ -4,7 +4,8 @@ Back to [Home](../Home.md)
 
 Each model has the same signature: `expected_payoff(apo, market, **kwargs)`, undiscounted,
 in $/bbl. They are registered by name in `MODELS` (`"bachelier"`, `"kirk"`, `"mc"`).
-Formulas in [Math](../Math.md).
+Formulas in [Math](../Math.md). GBM vs Bachelier, and why Bachelier fits spreads:
+[models/README](../../src/cmdty/models/README.md).
 
 ## averaging.py
 
