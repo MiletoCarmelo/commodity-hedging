@@ -37,13 +37,15 @@ Sell the APO, hedge it with futures every day until it settles.
 
 The bot first runs with one forward per underlying. Real hedges sit in a given contract month.
 
-- [ ] product specs in a `products.yaml`: exchange, lot size, unit, expiry rule (Brent M-2,
+- [x] futures specs in `market/futures.yaml`: exchange, lot size, expiry rule (Brent M-2,
       HO M-1, WTI around the 20th), expiry dates derived from the rule and the calendar
-- [ ] each leg says which contract it averages, e.g. `nearby: 1`
+- [x] each fixing uses the front contract of its date (first nearby, the market standard)
 - [ ] MarketData holds a futures curve (one forward and vol per contract month)
 - [ ] vol surface: contract month x strike instead of one vol per underlying
 - [ ] simulation moves the whole curve
-- [ ] hedge aggregated by contract month, rolled N days before expiry (bot setting)
+- [x] hedge aggregated by contract month, bot settings in `config/hedging.yaml`
+- [x] daily report: exposure per contract, trades with their reason, expiries, P&L explain
+- [ ] hedge in a chosen month (the most liquid) and roll with calendar spreads before expiry
 
 ## 3. Systematic strategy (later)
 

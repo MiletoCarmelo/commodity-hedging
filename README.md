@@ -11,6 +11,11 @@ crack is the one walked through in detail below.
 - **Risk**: greeks by bump and reprice, crack and outright deltas, cross gamma
 - **Hedging bot**: a portfolio file, a daily loop that hedges with futures, P&L and P&L explain
 
+## Goals and results
+
+Set up like an experiment: goals, hypotheses tested, results, problems met and limitations
+are listed in [docs/Study.md](docs/Study.md).
+
 ## Architecture
 
 The trade, the market and the model are kept apart. A trade never changes, the market is a
@@ -67,7 +72,8 @@ mc            2.667     2.598      64,941   +0.424   -0.406  +0.018
 
 Notebook 03: the example book (Brent put bought, WTI - Brent put sold, HO - Brent crack call
 sold) is delta hedged every day with futures, lots of 1 000 bbl, 5 $ per lot, on a simulated
-market. Brent is in all three trades: netted at book level, about 80% of its delta cancels.
+market. Each delta is split by the futures contract its fixings use and netted per contract
+month; a daily report shows the exposure ladder and every trade with its reason.
 
 On the crack alone, priced at the implied vols, with the market realising more or less:
 
@@ -137,10 +143,10 @@ src/cmdty/
 ├── risk/          GreekCalculator (per underlying) and SpreadGreekCalculator (+ crack, outright, corr): bump the market, never the trade
 ├── pricer.py      Pricer: a model applied to a market snapshot
 ├── portfolio.py   Portfolio and Trade, loaded from a YAML file
-├── hedging/       the bot: book risk netted per underlying, daily loop, P&L explain
+├── hedging/       the bot: hedge per contract month, daily loop, report, P&L explain
 ├── plotting.py    dark chart style used by the notebooks
 └── data/          Yahoo Finance client, vol/correlation estimation, roll-jump detection
-portfolios/  tests/  notebooks/
+portfolios/  config/  tests/  notebooks/
 ```
 
 Three things are kept apart, as in a trading system: the **trade** (fixed for its whole life),
@@ -181,9 +187,10 @@ Hedging bot:
 book = load_portfolio("portfolios/example_book.yaml")
 source = SimulatedSource(market, ql.Date(15, 7, 2027), any_exchange_calendar(["NYMEX", "ICE-EU"]),
                          realized_vol={"HO": 0.25, "BRENT": 0.27, "WTI": 0.28}, seed=7)
-run = HedgingBot(book, source, HedgeSettings(cost_per_lot=5)).run()
+run = HedgingBot(book, source, load_hedge_settings("config/hedging.yaml")).run()
 run.total_pnl                        # hedged P&L after costs, $
 run.to_frame()                       # one row per day: forwards, PV, deltas, lots, P&L, explain
+print(daily_report(run, ql.Date(20, 4, 2027)))   # exposure per contract, trades and why
 ```
 
 ## Roadmap

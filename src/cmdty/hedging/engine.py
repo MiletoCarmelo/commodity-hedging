@@ -11,13 +11,16 @@ import QuantLib as ql
 from ..market.sources import MarketSource
 from ..portfolio import Portfolio
 from ..pricer import Pricer
-from .book import book_greeks, book_risk, book_theta, paid_cash, target_lots
+from ..risk.book import book_greeks, book_risk, book_theta, paid_cash
 from .explain import explain_day
 from .settings import HedgeSettings
 
 # =============================================================================
 # 1. Results
 # =============================================================================
+
+
+Contract = tuple[str, str]  # (underlying, delivery month "YYYY-MM"), e.g. ("BRENT", "2027-03")
 
 
 @dataclass(frozen=True)
@@ -27,9 +30,12 @@ class Day:
     date: ql.Date
     forwards: dict[str, float]
     option_pv: float  # $, all trades
-    deltas: dict[str, float]  # bbl, options only, before the hedge
-    position: dict[str, int]  # futures lots held after rebalancing
-    traded: dict[str, int]  # lots bought (+) or sold (-) today
+    deltas: dict[str, float]  # bbl per underlying, options only, before the hedge
+    deltas_by_contract: dict[Contract, float]  # the same split by futures contract
+    position: dict[Contract, int]  # futures lots held after rebalancing
+    traded: dict[Contract, int]  # lots bought (+) or sold (-) today
+    reasons: dict[Contract, str]  # why each trade: open, close or adjust
+    lot_sizes: dict[str, float]  # bbl per lot, by underlying
     option_pnl: float  # change in PV + cash received
     hedge_pnl: float  # variation margin on yesterday's futures
     cost: float  # trading costs of today's rebalancing
@@ -38,6 +44,10 @@ class Day:
     @property
     def pnl(self) -> float:
         return self.option_pnl + self.hedge_pnl - self.cost
+
+    def lots(self, underlying: str) -> int:
+        """Futures lots held on one underlying, all months together."""
+        return sum(n for (u, _), n in self.position.items() if u == underlying)
 
 
 @dataclass
@@ -70,7 +80,7 @@ class HedgeRun:
             for u in d.forwards:
                 row[f"F_{u}"] = d.forwards[u]
                 row[f"delta_{u}"] = d.deltas.get(u, 0.0)
-                row[f"lots_{u}"] = d.position.get(u, 0)
+                row[f"lots_{u}"] = d.lots(u)
             rows.append(row)
         frame = pd.DataFrame(rows).set_index("date")
         frame["cum_pnl"] = frame["pnl"].cumsum()
@@ -78,12 +88,42 @@ class HedgeRun:
 
 
 # =============================================================================
-# 2. Bot
+# 2. Hedge decision
+# =============================================================================
+
+
+def target_lots(deltas: dict, lot_size: float | dict[str, float]) -> dict:
+    """Futures position that cancels the deltas, rounded to whole lots.
+
+    Keys are underlyings or (underlying, month) contracts; lot_size is one size or one per
+    underlying.
+    """
+    def size(key) -> float:
+        u = key[0] if isinstance(key, tuple) else key
+        return lot_size[u] if isinstance(lot_size, dict) else lot_size
+
+    return {key: -round(d / size(key)) for key, d in deltas.items()}
+
+
+def trade_reasons(before: dict[Contract, int], after: dict[Contract, int]) -> dict[Contract, str]:
+    """Why each contract moved: open (new month), close (back to flat) or adjust (size)."""
+    reasons = {}
+    for k in set(before) | set(after):
+        old, new = before.get(k, 0), after.get(k, 0)
+        if old == new:
+            continue
+        reasons[k] = "open" if old == 0 else "close" if new == 0 else "adjust"
+    return reasons
+
+
+# =============================================================================
+# 3. Bot
 # =============================================================================
 
 
 class HedgingBot:
-    """Delta hedges a portfolio with futures, one rebalancing per business day."""
+    """Delta hedges a portfolio with futures, contract month by contract month, once per
+    business day."""
 
     def __init__(
         self, portfolio: Portfolio, source: MarketSource, settings: HedgeSettings | None = None
@@ -91,11 +131,14 @@ class HedgingBot:
         self.portfolio = portfolio
         self.source = source
         self.settings = settings or HedgeSettings()
+        underlyings = {u for t in portfolio for u in t.instrument.underlyings}
+        self.settings.check_hedgeable(underlyings)
+        self.lot_sizes = {u: self.settings.lot(u) for u in underlyings}
 
     def run(self) -> HedgeRun:
         s = self.settings
         result = HedgeRun()
-        position: dict[str, int] = {}
+        position: dict[Contract, int] = {}
         prev_pricer, prev_pv, prev_risk, prev_greeks = None, 0.0, None, None
 
         for i, date in enumerate(self.source.dates()):
@@ -113,7 +156,7 @@ class HedgingBot:
                 moves = {u: forwards[u] - before.forward(u) for u in forwards}
                 cash = sum(paid_cash(t, prev_pricer, pricer) for t in self.portfolio)
                 option_pnl = risk.pv + cash - prev_pv
-                hedge_pnl = sum(lots * s.lot_size * moves[u] for u, lots in position.items())
+                hedge_pnl = sum(n * self.lot_sizes[u] * moves[u] for (u, _), n in position.items())
                 if prev_greeks is not None:
                     explain = explain_day(
                         option_pnl, prev_risk.deltas, prev_greeks,
@@ -123,20 +166,24 @@ class HedgingBot:
                         cash=cash,
                     )
 
-            # 2) rebalance to the new deltas
-            traded: dict[str, int] = {}
+            # 2) rebalance each contract to its new delta
+            traded: dict[Contract, int] = {}
+            reasons: dict[Contract, str] = {}
             if i % s.rebalance_every == 0:
-                target = target_lots(risk.deltas, s.lot_size)
-                for u in set(target) | set(position):
-                    change = target.get(u, 0) - position.get(u, 0)
+                target = target_lots(risk.deltas_by_contract, self.lot_sizes)
+                target = {k: n for k, n in target.items() if n}
+                for k in set(target) | set(position):
+                    change = target.get(k, 0) - position.get(k, 0)
                     if change:
-                        traded[u] = change
-                position = {u: n for u, n in target.items() if n}
-            cost = s.cost_per_lot * sum(abs(n) for n in traded.values())
+                        traded[k] = change
+                reasons = trade_reasons(position, target)
+                position = target
+            cost = sum(s.cost(u) * abs(n) for (u, _), n in traded.items())
 
             result.days.append(Day(
                 date=date, forwards=forwards, option_pv=risk.pv, deltas=risk.deltas,
-                position=dict(position), traded=traded,
+                deltas_by_contract=risk.deltas_by_contract, position=dict(position),
+                traded=traded, reasons=reasons, lot_sizes=self.lot_sizes,
                 option_pnl=option_pnl, hedge_pnl=hedge_pnl, cost=cost, explain=explain,
             ))
             prev_pricer, prev_pv, prev_risk, prev_greeks = pricer, risk.pv, risk, greeks

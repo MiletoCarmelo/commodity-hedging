@@ -1,5 +1,6 @@
 """Exchange calendars for fixing dates."""
 
+from functools import lru_cache
 from importlib import resources
 
 import holidays
@@ -96,6 +97,7 @@ EXCHANGES = _load_exchange_table()
 _BY_MIC = {entry["mic"]: name for name, entry in EXCHANGES.items()}
 
 
+@lru_cache(maxsize=None)  # building a calendar from `holidays` is slow, do it once
 def exchange_calendar(code: str) -> ql.Calendar:
     """Calendar of one exchange, by name ("NYMEX") or MIC ("XNYM")."""
     name = code if code in EXCHANGES else _BY_MIC.get(code)

@@ -1,0 +1,29 @@
+# Futures the bot can hedge with, one per underlying name used in MarketData.
+# Reference data: same for every desk. Which ones a desk uses and at what cost is in the
+# bot settings (config/hedging.yaml).
+#
+# expiry: rule giving the last trading day of a contract, see market/futures.py
+#   m1_last : last business day of the month before delivery
+#   m2_last : last business day of the second month before delivery
+#   wti     : 3 business days before the 25th of the month before delivery
+
+BRENT:
+  contract: ICE Brent Crude
+  exchange: ICE-EU
+  symbol: B
+  lot_size: 1000          # bbl
+  expiry: m2_last
+
+WTI:
+  contract: NYMEX Light Sweet Crude (WTI)
+  exchange: NYMEX
+  symbol: CL
+  lot_size: 1000          # bbl
+  expiry: wti
+
+HO:
+  contract: NYMEX NY Harbor ULSD
+  exchange: NYMEX
+  symbol: HO
+  lot_size: 1000          # bbl (42 000 gal)
+  expiry: m1_last

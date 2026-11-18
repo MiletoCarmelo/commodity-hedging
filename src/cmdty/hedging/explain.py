@@ -6,7 +6,7 @@ What the expansion misses is `unexplained`. On a well hedged book the delta line
 hedge P&L cancel, and what is left is gamma against theta: the volatility bet.
 """
 
-from .book import BookGreeks
+from ..risk.book import BookGreeks
 
 EXPLAIN_LINES = ("delta", "gamma", "theta", "vega", "cash", "unexplained")
 
