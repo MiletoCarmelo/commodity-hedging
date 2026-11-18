@@ -3,12 +3,20 @@
 Shared by every averaging product (APO, average price swap...).
 """
 
+from functools import lru_cache
+
 import numpy as np
 import QuantLib as ql
 from pydantic import BaseModel, ConfigDict, Field
 
 from ..market.calendars import business_days
 from ..market.dates import MonthRange
+
+
+@lru_cache(maxsize=1024)
+def _cached_business_days(calendar_name: str, start: int, end: int, calendar: ql.Calendar) -> tuple:
+    """Same as business_days, computed once per calendar and period (called every day)."""
+    return tuple(business_days(calendar, ql.Date(start), ql.Date(end)))
 
 
 class AveragingSchedule(BaseModel):
@@ -24,7 +32,9 @@ class AveragingSchedule(BaseModel):
     # --- fixings ---
     def fixing_dates(self) -> list:
         """Days whose settlement prices enter the average (pricing days)."""
-        return business_days(self.calendar, self.pricing_period.start, self.pricing_period.end)
+        p = self.pricing_period
+        return list(_cached_business_days(
+            self.calendar.name(), p.start.serialNumber(), p.end.serialNumber(), self.calendar))
 
     # today_fixed: today's settlement is already published (end of day), so today's
     # fixing counts as past. Otherwise it is still to come.

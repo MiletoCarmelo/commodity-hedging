@@ -29,7 +29,10 @@ already do: each trade's greeks are multiplied by its signed quantity and added 
 underlying.
 
 - `trade_pv`, `trade_deltas`: one trade, signed by its quantity, 0 once paid
+- `contract_weights(trade, pricer)`: share of each futures contract in the remaining average,
+  per leg. `trade_deltas_by_contract` applies it to the deltas
 - `paid_cash`: payoff received when a trade passes its pay date
-- `book_risk(portfolio, pricer)`: PV and deltas of the whole book, netted per underlying
+- `book_risk(portfolio, pricer)`: PV and deltas of the whole book, netted per underlying and
+  per (underlying, contract month)
 - `book_greeks`, `book_theta`: gammas (with cross terms), vegas and theta of the book, used by
   the P&L explain. Here the units are $ and bbl: per bbl times the quantity

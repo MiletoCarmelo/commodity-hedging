@@ -1,0 +1,15 @@
+# Settings of the hedging bot: desk choices, not trade terms.
+# Contract specs (exchange, lot size, expiry rule) are reference data in
+# src/cmdty/market/futures.yaml. Here: which futures the bot may trade and at what cost.
+
+model: kirk               # pricing model for PV and deltas
+rebalance_every: 1        # business days between two rebalancings
+explain: true             # P&L explain every day
+
+instruments:              # underlying -> future the bot may trade
+  BRENT:
+    cost_per_lot: 5.0     # $ per lot: fees + half the bid-ask
+  WTI:
+    cost_per_lot: 5.0
+  HO:
+    cost_per_lot: 5.0

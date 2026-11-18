@@ -7,6 +7,8 @@ from typing import TYPE_CHECKING
 
 import QuantLib as ql
 
+from ..market.futures import front_contract
+from ..models.averaging import averaging_state
 from ..portfolio import Portfolio, Trade
 
 if TYPE_CHECKING:  # avoid a circular import, only for type hints
@@ -37,6 +39,32 @@ def trade_deltas(trade: Trade, pricer: "Pricer") -> dict[str, float]:
     return {u: apo.quantity * d for u, d in pricer.deltas(apo).items()}
 
 
+def contract_weights(trade: Trade, pricer: "Pricer") -> dict[tuple[str, str], float]:
+    """Share of each futures contract in the remaining average, per leg.
+
+    Each fixing uses the front contract of its date. A leg whose fixings straddle an
+    expiry (WTI in April: May contract until the 20th, June after) splits over two months.
+    Keys are (underlying, "YYYY-MM") of the delivery month.
+    """
+    apo, market = trade.instrument, pricer.market
+    state = averaging_state(apo, market)
+    remaining = apo.schedule.future_fixings(market.today, state.today_fixed)
+    weights: dict[tuple[str, str], float] = {}
+    for u in apo.underlyings:
+        for d in remaining:
+            y, m = front_contract(u, d)
+            key = (u, f"{y}-{m:02d}")
+            weights[key] = weights.get(key, 0.0) + 1.0 / len(remaining)
+    return weights
+
+
+def trade_deltas_by_contract(trade: Trade, pricer: "Pricer") -> dict[tuple[str, str], float]:
+    """Deltas of one trade split by futures contract: what has to be hedged, month by month."""
+    deltas = trade_deltas(trade, pricer)
+    return {key: deltas[key[0]] * w for key, w in contract_weights(trade, pricer).items()
+            if key[0] in deltas}
+
+
 def paid_cash(trade: Trade, before: "Pricer", after: "Pricer") -> float:
     """Cash received if the trade pays between the two dates, 0 otherwise."""
     if _is_alive(trade, before) and not _is_alive(trade, after):
@@ -56,17 +84,25 @@ class BookRisk:
     pv: float  # $, sum over trades
     deltas: dict[str, float]  # bbl per underlying, netted across trades
     pv_by_trade: dict[str, float]
+    deltas_by_contract: dict[tuple[str, str], float]  # bbl per (underlying, "YYYY-MM")
 
 
 def book_risk(portfolio: Portfolio, pricer: "Pricer") -> BookRisk:
-    """Price every trade and add up the deltas per underlying (netting)."""
+    """Price every trade and add up the deltas per underlying and per contract (netting)."""
     deltas: dict[str, float] = {}
+    by_contract: dict[tuple[str, str], float] = {}
     pvs = {}
     for trade in portfolio:
         pvs[trade.id] = trade_pv(trade, pricer)
-        for u, d in trade_deltas(trade, pricer).items():
+        if not _is_alive(trade, pricer):
+            continue
+        trade_delta = trade_deltas(trade, pricer)  # priced once, then split by contract
+        for u, d in trade_delta.items():
             deltas[u] = deltas.get(u, 0.0) + d
-    return BookRisk(pv=sum(pvs.values()), deltas=deltas, pv_by_trade=pvs)
+        for key, w in contract_weights(trade, pricer).items():
+            by_contract[key] = by_contract.get(key, 0.0) + trade_delta[key[0]] * w
+    return BookRisk(pv=sum(pvs.values()), deltas=deltas, pv_by_trade=pvs,
+                    deltas_by_contract=by_contract)
 
 
 # =============================================================================

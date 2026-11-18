@@ -52,8 +52,12 @@ Market data and market conventions.
 
 - `month_code(4)` -> `"J"` (F G H J K M N Q U V X Z)
 - `contract_symbol("HO", 2027, 4)` -> `"HOJ27"`
-- `nearby_contract(2027, 3, months_ahead)`: contract a leg fixes on during the pricing month.
-  HO uses the next month, Brent the one after.
+- `nearby_contract(2027, 3, months_ahead)`: the month `months_ahead` later
+- `futures.yaml`: one future per underlying, with exchange, symbol, lot size and expiry rule
+  (Brent: last business day of M-2, HO: of M-1, WTI: 3 business days before the 25th of M-1)
+- `expiry_date("WTI", 2027, 5)` -> 20 Apr 2027, last trading day of a contract
+- `front_contract("WTI", date)`: the contract a fixing on that date uses (first one not expired)
+- `contract_label("BRENT", 2027, 3)` -> `"BH27"`
 
 ## vol.py
 
