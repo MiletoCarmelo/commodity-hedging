@@ -43,6 +43,8 @@ what got in the way, and what the setup cannot say.
 
 ## Problems met
 
+Each one in detail (symptom, how it was found, cause, fix, lesson) in [Findings](Findings.md).
+
 - QuantLib has no spread option class: `BasketOption` + `SpreadBasketPayoff` + `KirkEngine`.
 - `KirkEngine` discounts to expiry, the APO pays later: engine at zero rate, separate discount
   to the pay date (upfront) or none (futures-style).

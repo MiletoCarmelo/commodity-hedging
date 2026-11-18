@@ -3,6 +3,7 @@
 Notes on how the pricer and the hedging bot work. Open this folder as an Obsidian vault, or just read it on GitHub.
 
 - [Study](Study.md): goals, hypotheses, results, problems met, limitations
+- [Findings](Findings.md): bugs and surprises found along the way, and what they taught
 - [Pipeline](Pipeline.md): what happens from contract to greeks
 - [Roadmap](Roadmap.md): where the repo is going
 - [Math](Math.md): all the formulas used in the code
