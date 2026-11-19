@@ -2,6 +2,7 @@
 
 Two ways to say how a futures price moves. Every model in this folder uses one of them,
 and so does the simulated market (`market.sources.SimulatedSource`).
+How the Monte Carlo runs, step by step: [MONTE_CARLO](MONTE_CARLO.md).
 
 | | Equation | Shocks are in | Price can go negative | Used by |
 |---|---|---|---|---|
