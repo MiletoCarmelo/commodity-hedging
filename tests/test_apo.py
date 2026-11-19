@@ -183,7 +183,8 @@ def test_cholesky_factor_repairs_invalid_matrix():
         L = cholesky_factor(bad)
     fixed = L @ L.T
     assert np.allclose(np.diag(fixed), 1.0)
-    assert np.all(np.linalg.eigvalsh(fixed) > 0)
+    assert np.all(np.linalg.eigvalsh(fixed) > -1e-10)  # nearest valid matrix: semi-definite
+    assert fixed[1, 2] == pytest.approx(-0.5, abs=1e-3)  # Higham's nearest correlation
 
 
 def test_correlated_brownians_have_target_correlation():

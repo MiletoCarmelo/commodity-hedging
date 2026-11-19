@@ -146,7 +146,9 @@ X = L Z, \quad Z \sim \mathcal{N}(0, I)
 $$
 
 In 2D: $x_1 = z_1$, $x_2 = \rho z_1 + \sqrt{1-\rho^2}\,z_2$.
-If $C$ is not positive definite, negative eigenvalues are clipped and the diagonal reset to 1.
+Computed with QuantLib's `pseudoSqrt`. If $C$ is not positive definite (e.g. A and B very
+correlated, B and C too, but A and C anticorrelated), Higham's algorithm replaces it with the
+nearest valid correlation matrix first.
 Code: `models.montecarlo`.
 
 ## Discounting

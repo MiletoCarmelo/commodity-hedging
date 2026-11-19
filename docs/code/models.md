@@ -40,7 +40,7 @@ What is already known during the pricing month, shared by the three models.
 1. `expected_payoff(apo, market, n_paths=200_000, seed=42)`, four steps: future fixing
    times, correlated Brownians, futures paths, average (known + simulated) and payoff.
 2. Helpers:
-   - `cholesky_factor(corr)`: L with L L^T = corr, repairs the matrix if needed
+   - `cholesky_factor(corr)`: L with L L^T = corr, repairs the matrix if needed (QuantLib `pseudoSqrt`, Higham)
    - `correlated_brownians(t, corr, n_paths, seed)`: shape (paths, fixings, factors)
    - `futures_paths(forward, vol, t, w)`: driftless GBM
 

@@ -3,6 +3,7 @@
 import warnings
 
 import numpy as np
+import QuantLib as ql
 
 from .averaging import averaging_state, settled_payoff
 
@@ -45,23 +46,15 @@ def expected_payoff(apo, market, n_paths: int = 200_000, seed: int = 42) -> floa
 
 def cholesky_factor(corr: np.ndarray) -> np.ndarray:
     """Lower factor L with L @ L.T = corr; repairs corr if not positive definite."""
-    corr = np.asarray(corr, dtype=float)
-
-    # repair: clip negative eigenvalues, rebuild, put 1s back on the diagonal
-    eigenvalues, eigenvectors = np.linalg.eigh(corr)
-    if np.any(eigenvalues <= 0):
-        warnings.warn("correlation matrix not positive definite, repaired")
-        eigenvalues = np.maximum(eigenvalues, 1e-8)
-        corr = eigenvectors @ np.diag(eigenvalues) @ eigenvectors.T
-        d = np.sqrt(np.diag(corr))
-        corr = corr / np.outer(d, d)
-
+    m = ql.Matrix(np.asarray(corr, dtype=float).tolist())
     try:
-        return np.linalg.cholesky(corr)
-    except np.linalg.LinAlgError:
-        # plan B: eigen factor, also satisfies L @ L.T = corr
-        eigenvalues, eigenvectors = np.linalg.eigh(corr)
-        return eigenvectors @ np.diag(np.sqrt(np.maximum(eigenvalues, 1e-8)))
+        L = ql.pseudoSqrt(m, ql.SalvagingAlgorithm.NoAlgorithm)  # plain Cholesky, lower triangular
+    except RuntimeError:
+        # not a valid correlation: Higham finds the nearest one (semi-definite), then a
+        # square root of it; that factor is no longer triangular, L @ L.T still holds
+        warnings.warn("correlation matrix not positive definite, repaired")
+        L = ql.pseudoSqrt(m, ql.SalvagingAlgorithm.Higham)
+    return np.array([[L[i][j] for j in range(L.columns())] for i in range(L.rows())])
 
 
 def correlated_brownians(
