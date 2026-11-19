@@ -1,4 +1,4 @@
-"""Monte Carlo on the actual fixing dates: one correlated driftless GBM future per leg."""
+"""Monte Carlo on the actual fixing dates: one correlated driftless Geometric Brownian Motion (GBM) future per leg."""
 
 import warnings
 
