@@ -158,6 +158,56 @@ with the Cholesky factor $L$ of the correlation matrix ($L L^\top = C$): $X = L 
 With two legs: $x_{HO} = z_1$, $x_{B} = 0.95\, z_1 + \sqrt{1 - 0.95^2}\, z_2$.
 Brent gets 95% of HO's shock plus a small shock of its own.
 
+Cholesky is a step inside the Monte Carlo, not a separate method. The correlation is an
+input (estimated on history), it is not simulated.
+
+## 8. The full loop
+
+1. **Once, at the start**: Cholesky on the correlation matrix, $C = L L^\top$.
+   $L$ only depends on the correlation, which is constant, so it never changes.
+2. **One scenario**, from $t_1$ to $t_n$. At each step:
+   - draw new independent $Z$, one per leg
+   - correlate them: $X = L Z$ (same $L$ every time)
+   - put each $x_k$ in its own SDE step: new price of each leg
+3. At the end of the scenario: the value you need (payoff, or the book repriced)
+4. **Repeat step 2–3** $N$ times, with the same $L$ and new $Z$
+5. **Aggregate**: the mean for a price, the tail for a risk measure
+
+## 9. Same engine for risk: VaR and Expected Shortfall
+
+Pricing and VaR use the same loop. What changes:
+
+| | pricing | VaR / ES |
+|---|---|---|
+| horizon | until the option's last fixing | 1 to 10 days |
+| vol and correlation | implied (market) | often historical ("real-world") |
+| what is simulated | the legs of one option | every risk factor of the book (prices, possibly vols) |
+| at the end of a scenario | the payoff | the whole book repriced, P&L = value at horizon − value today |
+| aggregate | mean | tail: VaR 99% = 1st percentile of P&L, ES = mean of the losses beyond it |
+
+Two stages, not to be mixed:
+- the **SDE** moves the risk factors (Brent, HO, WTI, vols)
+- the **pricing model** revalues each instrument on the simulated factors:
+  Black-76 for an option on a future, Kirk or Bachelier for a spread APO,
+  $\Delta F \times$ quantity for a future
+
+All instruments are revalued on the **same** scenario and their P&L summed, so that
+offsetting positions (an option and its futures hedge) offset. VaRs computed separately are
+**not** added or averaged: VaR is not additive (diversification), and not even always
+sub-additive; ES is.
+
+For a 10-day horizon:
+- one step of $\Delta t = 10/252$ (exact for the GBM), or
+- ten daily steps, when the path matters (an APO fixing every day, a vol that moves), or
+- the 1-day VaR $\times \sqrt{10}$: quick, but assumes independent shocks and a roughly
+  linear book (wrong with a lot of gamma)
+
+Either way the book is repriced **at $t + 10$**: ten days of time value are gone and ten more
+fixings may be known.
+
+There are more scenarios than for a price, because only the tail counts: with 10 000 scenarios,
+a 99% VaR rests on the 100 worst.
+
 ## In the code
 
 | step | function |
