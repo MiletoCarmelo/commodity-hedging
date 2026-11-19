@@ -99,6 +99,19 @@ Both formulas are **exact for any $\Delta t$**, not only for small steps (see se
 
 `montecarlo.py` and `SimulatedSource` use the GBM.
 
+### Counting time
+
+$\Delta t$ is in years, and there are two ways to count them. The vol must use the same one.
+
+- **calendar days (Actual/365)**: every day counts. A weekday is $1/365$, Friday to Monday
+  $3/365$. Used by the pricer here: over months, weekends average out.
+- **business days (1/252)**: only trading days count, every step is $1/252$, the weekend carries
+  no risk. Used for VaR (notebook 05): markets are shut at weekends, and a Monday does not move
+  three times more than a Tuesday.
+
+Over a year both give the same spread. Over one weekday, calendar days make the move
+$\sqrt{252/365} = 0.83$ times smaller, so a 1-day VaR 17% lower.
+
 ## 3–4. Step forward: one path
 
 At each step you know everything you need:
