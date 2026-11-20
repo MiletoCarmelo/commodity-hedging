@@ -196,14 +196,18 @@ print(daily_report(run, ql.Date(20, 4, 2027)))   # exposure per contract, trades
 
 ## Roadmap
 
-Full roadmap in [docs/Roadmap.md](docs/Roadmap.md): futures curve and contract roll next,
-then historical data and a systematic strategy.
+Full roadmap in [docs/Roadmap.md](docs/Roadmap.md): market risk next (VaR of the hedged book,
+historical VaR and backtesting, stress tests and limits, daily risk report), then the futures
+curve and contract roll, then a systematic strategy.
 
 - [x] Valuation **inside** the averaging period (fixed fixings → adjusted strike K*, decaying delta)
 - [x] Walkthrough notebook with PV/delta profiles
 - [x] Hedging bot on a simulated market, P&L explain
 - [x] Historical correlation from Yahoo Finance with roll-jump detection
 - [x] Live forwards from the dated contracts each leg references (`market/futures.py`: month codes, first nearby)
+- [x] Monte Carlo VaR and ES of the book (notebook 05)
+- [ ] VaR of the hedged book, historical VaR and backtesting, stress tests and limits
+- [ ] Futures curve: one forward and vol per contract month, roll with calendar spreads
 - [ ] Data-quality / anomaly checks on implied vol surfaces
 
 ## Limitations
