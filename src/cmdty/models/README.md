@@ -67,7 +67,7 @@ $\sigma F\, dW$: big when the price is high, small when it is low.
 
 The $-\tfrac12\sigma^2 T$ term keeps the *mean* at 75. The *median* is lower,
 $75\,e^{-\sigma^2 T/2} \approx 71.3$: most paths end a bit below 75, a few end very high.
-That is the gap between the two lines in notebook 04's fan chart.
+That is the gap between the two lines in notebook 03's fan chart.
 
 The option formula is Black-76 (see [Math](../../../docs/Math.md#black-76-and-implied-vol)).
 It needs $\ln(F/K)$, so **both $F$ and $K$ must be positive**.

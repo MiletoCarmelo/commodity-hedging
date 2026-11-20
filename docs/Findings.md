@@ -47,7 +47,7 @@ Here it was built for the first reason and paid off through the second (finding 
 - **Symptom**: on the sold crack, the hedged P&L dispersion was 9.5 k$ with whole lots and
   6.6 k$ hedging in barrels. On a smaller first version of the trade (10 000 bbl), whole-lot
   Kirk hedging even did worse than Bachelier, although Kirk is the right model for the market.
-- **Found by**: comparing hedge settings on the same 40 simulated paths (notebook 03).
+- **Found by**: comparing hedge settings on the same 40 simulated paths (notebook 04).
 - **Cause**: Kirk deltas of a spread are not symmetric. Rounded leg by leg, deltas like
   +10 600 / -10 400 bbl become 11 HO lots against 10 Brent, i.e. 1 000 bbl of flat price risk,
   which moves much more than the crack. Bachelier deltas are symmetric and round the same way.

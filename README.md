@@ -70,7 +70,7 @@ mc            2.667     2.598      64,941   +0.424   -0.406  +0.018
 
 ## Hedging bot results
 
-Notebook 03: the example book (Brent put bought, WTI - Brent put sold, HO - Brent crack call
+Notebook 04: the example book (Brent put bought, WTI - Brent put sold, HO - Brent crack call
 sold) is delta hedged every day with futures, lots of 1 000 bbl, 5 $ per lot, on a simulated
 market. Each delta is split by the futures contract its fixings use and netted per contract
 month; a daily report shows the exposure ladder and every trade with its reason.
@@ -196,8 +196,8 @@ print(daily_report(run, ql.Date(20, 4, 2027)))   # exposure per contract, trades
 
 ## Roadmap
 
-Full roadmap in [docs/Roadmap.md](docs/Roadmap.md): market risk next (VaR of the hedged book,
-historical VaR and backtesting, stress tests and limits, daily risk report), then the futures
+Full roadmap in [docs/Roadmap.md](docs/Roadmap.md): market risk next (historical VaR and
+backtesting, stress tests and limits, daily risk report), then the futures
 curve and contract roll, then a systematic strategy.
 
 - [x] Valuation **inside** the averaging period (fixed fixings → adjusted strike K*, decaying delta)
@@ -205,8 +205,8 @@ curve and contract roll, then a systematic strategy.
 - [x] Hedging bot on a simulated market, P&L explain
 - [x] Historical correlation from Yahoo Finance with roll-jump detection
 - [x] Live forwards from the dated contracts each leg references (`market/futures.py`: month codes, first nearby)
-- [x] Monte Carlo VaR and ES of the book (notebook 05)
-- [ ] VaR of the hedged book, historical VaR and backtesting, stress tests and limits
+- [x] Monte Carlo VaR and ES of the book (notebook 05), unhedged and hedged (notebook 06)
+- [ ] Historical VaR and backtesting, stress tests and limits
 - [ ] Futures curve: one forward and vol per contract month, roll with calendar spreads
 - [ ] Data-quality / anomaly checks on implied vol surfaces
 

@@ -26,7 +26,7 @@ Sell the APO, hedge it with futures every day until it settles.
 - [x] P&L explain: delta, gamma, theta, vega, unexplained
 - [x] compare hedge frequency and model (Bachelier vs Kirk deltas)
 - [ ] round the hedge in crack lots, then hedge the outright residual: rounding each leg on its
-      own can leave a whole lot of flat price exposure (see notebook 03)
+      own can leave a whole lot of flat price exposure (see notebook 04)
 
 ## 2b. Multi-leg spreads (extension)
 
@@ -41,8 +41,9 @@ What a risk desk computes every day on the book: how much can it lose, and does 
 - [x] Monte Carlo VaR and ES of the unhedged book: correlated scenarios (Cholesky), full
       revaluation, trade contributions, delta / delta-gamma / parametric vs full, 1 vs 10 days
       (notebook 05)
-- [ ] VaR of the hedged book: the futures held by the bot, and what is left once the delta is
-      covered (gamma now, the basis between contract months once the curve exists)
+- [x] VaR of the hedged book: the futures held by the bot, and what is left once the delta is
+      covered: lot rounding and gamma on the spread; delta-normal blind to it, square-root rule
+      broken (notebook 06). The basis between contract months needs the curve
 - [ ] historical VaR: replay the last 250 real daily moves (Yahoo) instead of normal shocks,
       compared with the Monte Carlo VaR
 - [ ] backtesting: count the days the loss beat the VaR, Kupiec test, Basel traffic-light zones
