@@ -20,5 +20,6 @@ Yahoo has no options on commodity futures, so vols stay inputs.
 ## estimation.py
 
 1. `log_returns`, `flag_jumps` (roll jumps, see [Math](../Math.md#roll-jumps))
-2. `MarketParams` and `estimate_market_params(prices, window=60)`: realised vols, correlation,
-   rolling correlation, removed dates.
+2. `MarketParams` and `estimate_market_params(prices, window=60)`: realised vols, pairwise
+   `correlations` (same format as `MarketData.correlations`, any number of columns), rolling
+   correlations, removed dates.

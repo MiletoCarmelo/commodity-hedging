@@ -120,7 +120,8 @@ Desk practice: **vols from the options market** (implied, step 1 above), **corre
 - `YahooFinanceClient`: daily history of continuous futures (`HO=F`, `BZ=F`), dated contracts
   (`futures_price("HO", 2027, 4)` -> `HOJ27.NYM`, front-month fallback), retries,
   explicit errors, closes aligned on common dates and converted to $/bbl.
-- `estimate_market_params`: realised vols, correlation and 60-day rolling correlation of log-returns.
+- `estimate_market_params`: realised vols, pairwise correlations and 60-day rolling correlations
+  of log-returns, in the `MarketData` format.
 - `flag_jumps`: **roll-jump / outlier detection** (robust z-score on median/MAD): continuous
   front-month series jump at each contract roll, which inflates vols and dilutes correlation if left in.
 

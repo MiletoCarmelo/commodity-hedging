@@ -19,7 +19,8 @@ def synthetic_prices(rho=0.9, vols=(0.30, 0.32), n=750, seed=0, jump_at=None):
 
 def test_estimation_recovers_parameters():
     p = estimate_market_params(synthetic_prices())
-    assert p.rho == pytest.approx(0.9, abs=0.03)
+    assert p.corr("HO", "BRENT") == pytest.approx(0.9, abs=0.03)
+    assert p.corr("BRENT", "HO") == p.corr("HO", "BRENT")
     assert p.vols["HO"] == pytest.approx(0.30, abs=0.03)
     assert p.vols["BRENT"] == pytest.approx(0.32, abs=0.03)
 
@@ -31,7 +32,20 @@ def test_roll_jump_is_flagged_and_removed():
     assert len(clean.flagged_dates) == 1
     assert clean.flagged_dates[0] == prices.index[401]
     assert raw.vols["HO"] > clean.vols["HO"]          # the jump inflates vol
-    assert clean.rho > raw.rho                         # ... and dilutes correlation
+    assert clean.corr("HO", "BRENT") > raw.corr("HO", "BRENT")  # ... and dilutes correlation
+
+
+def test_estimation_handles_three_columns_and_feeds_market_data():
+    from cmdty import MarketData, Quote
+    prices = synthetic_prices()
+    prices["WTI"] = prices["BRENT"] * 0.95
+    p = estimate_market_params(prices)
+    assert set(p.correlations) == {("HO", "BRENT"), ("HO", "WTI"), ("BRENT", "WTI")}
+    assert p.corr("WTI", "BRENT") == pytest.approx(1.0)
+    m = MarketData(today="2026-11-20", rate=0.04,
+                   quotes={u: Quote(70.0, p.vols[u]) for u in prices.columns},
+                   correlations=p.correlations)
+    assert m.corr("HO", "WTI") == p.corr("HO", "WTI")
 
 
 def test_flag_jumps_quiet_on_clean_data():
