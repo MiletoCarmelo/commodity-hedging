@@ -25,7 +25,8 @@ new snapshot every day, the model is a choice of the pricer. The bot only talks 
 ![architecture](docs/img/architecture.png)
 
 What each block holds, one map per block: [MarketData](docs/img/map_market.png),
-[Pricer](docs/img/map_pricer.png), [HedgingBot](docs/img/map_bot.png). Details in
+[Pricer](docs/img/map_pricer.png), [HedgingBot](docs/img/map_bot.png). Everything on one page:
+[full map](docs/drawio/LivePricing.drawio.svg). Details in
 [docs/](docs/Home.md).
 
 ## The example trade

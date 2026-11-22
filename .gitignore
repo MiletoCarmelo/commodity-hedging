@@ -7,3 +7,7 @@ __pycache__/
 *.egg-info/
 .pytest_cache/
 .obsidian/
+
+# draw.io backups
+*.bkp
+.$*
