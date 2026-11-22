@@ -2,6 +2,8 @@
 
 Back to [Home](Home.md)
 
+All the steps below on one page: [full map](drawio/LivePricing.drawio.svg).
+
 Three things are kept apart: the trade (never changes), the market (a new snapshot every day)
 and the model. Then the hedging bot runs the same steps every day.
 

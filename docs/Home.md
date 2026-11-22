@@ -20,6 +20,14 @@ Notes on how the pricer and the hedging bot work. Open this folder as an Obsidia
 
 ![architecture](img/architecture.png)
 
+## Full map
+
+Every class, function and data flow, from Yahoo prices to the hedging bot's daily table, on
+one page. Drawn in draw.io: the SVG opens in draw.io as an editable diagram
+([source](drawio/LivePricing.drawio)).
+
+![full map](drawio/LivePricing.drawio.svg)
+
 The worked example is a call on the Jun-27 average of the NY Harbor ULSD - Brent crack,
 strike 32 $/bbl, 25 000 bbl, one of the three trades of `portfolios/example_book.yaml`.
 The terms are made up for illustration.
