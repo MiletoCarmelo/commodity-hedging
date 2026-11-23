@@ -1,0 +1,266 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/24.7.17 Chrome/128.0.6613.36 Electron/32.0.1 Safari/537.36" version="24.7.17">
+  <diagram name="Page-1" id="48VSivA2GGvGB2llWrr3">
+    <mxGraphModel dx="2443" dy="2162" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="F1T_GgzjREKyvWTFukb6-103" value="" style="rounded=1;whiteSpace=wrap;html=1;dashed=1;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="81" y="612.5" width="920" height="367.5" as="geometry" />
+        </mxCell>
+        <mxCell id="F1T_GgzjREKyvWTFukb6-1" value="&lt;div&gt;Object type date :&lt;/div&gt;d = ql.Date(&lt;span style=&quot;color: rgb(94, 237, 237);&quot;&gt;YEAR&lt;/span&gt;,&lt;span style=&quot;color: rgb(94, 237, 237);&quot;&gt;MONTH&lt;/span&gt;,&lt;span style=&quot;color: rgb(94, 237, 237);&quot;&gt;DAY&lt;/span&gt;)" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-222.5" y="90" width="190" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="F1T_GgzjREKyvWTFukb6-39" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="F1T_GgzjREKyvWTFukb6-2" target="F1T_GgzjREKyvWTFukb6-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="F1T_GgzjREKyvWTFukb6-45" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="F1T_GgzjREKyvWTFukb6-2" target="F1T_GgzjREKyvWTFukb6-44">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="F1T_GgzjREKyvWTFukb6-47" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="F1T_GgzjREKyvWTFukb6-2" target="F1T_GgzjREKyvWTFukb6-46">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="F1T_GgzjREKyvWTFukb6-49" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="F1T_GgzjREKyvWTFukb6-2" target="F1T_GgzjREKyvWTFukb6-48">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="F1T_GgzjREKyvWTFukb6-2" value="Date&lt;div&gt;(d,d1,d2)&lt;/div&gt;" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-187.5" y="190" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="F1T_GgzjREKyvWTFukb6-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="F1T_GgzjREKyvWTFukb6-4" target="F1T_GgzjREKyvWTFukb6-10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="F1T_GgzjREKyvWTFukb6-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="F1T_GgzjREKyvWTFukb6-4" target="F1T_GgzjREKyvWTFukb6-9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="F1T_GgzjREKyvWTFukb6-14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="F1T_GgzjREKyvWTFukb6-4" target="F1T_GgzjREKyvWTFukb6-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="F1T_GgzjREKyvWTFukb6-27" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="F1T_GgzjREKyvWTFukb6-4" target="F1T_GgzjREKyvWTFukb6-26">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="F1T_GgzjREKyvWTFukb6-56" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="F1T_GgzjREKyvWTFukb6-4" target="F1T_GgzjREKyvWTFukb6-15">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="F1T_GgzjREKyvWTFukb6-57" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="F1T_GgzjREKyvWTFukb6-4" target="F1T_GgzjREKyvWTFukb6-7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="F1T_GgzjREKyvWTFukb6-4" value="Calendars&amp;nbsp;&lt;div&gt;(c)&lt;/div&gt;" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="530" y="220" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="F1T_GgzjREKyvWTFukb6-5" value="&lt;span class=&quot;token token string-interpolation interpolation&quot;&gt;calendar&lt;/span&gt;&lt;span style=&quot;color: rgb(211, 215, 222);&quot; class=&quot;token token string-interpolation interpolation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token token string-interpolation interpolation&quot;&gt;name&lt;/span&gt;&lt;span style=&quot;color: rgb(211, 215, 222);&quot; class=&quot;token token string-interpolation interpolation&quot;&gt;(&lt;/span&gt;&lt;span style=&quot;color: rgb(211, 215, 222);&quot; class=&quot;token token string-interpolation interpolation&quot;&gt;)&lt;/span&gt;&lt;span style=&quot;color: rgb(211, 215, 222);&quot; class=&quot;token token string-interpolation interpolation&quot;&gt;&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="425" y="305" width="130" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="F1T_GgzjREKyvWTFukb6-7" value="&lt;span style=&quot;color: rgb(211, 215, 222);&quot; class=&quot;token token string-interpolation interpolation&quot;&gt;&lt;/span&gt;&lt;span class=&quot;token token string-interpolation interpolation&quot;&gt;calendar&lt;/span&gt;&lt;span style=&quot;color: rgb(211, 215, 222);&quot; class=&quot;token token string-interpolation interpolation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token token string-interpolation interpolation&quot;&gt;isBusinessDay&lt;/span&gt;&lt;span style=&quot;color: rgb(211, 215, 222);&quot; class=&quot;token token string-interpolation interpolation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token token string-interpolation interpolation&quot;&gt;d&lt;/span&gt;&lt;span style=&quot;color: rgb(211, 215, 222);&quot; class=&quot;token token string-interpolation interpolation&quot;&gt;)&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="190" y="245" width="190" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="F1T_GgzjREKyvWTFukb6-9" value="prochian jour ferier :&lt;div&gt;calendar&lt;span style=&quot;color: rgb(211, 215, 222);&quot; class=&quot;token token&quot;&gt;.&lt;/span&gt;advance&lt;span style=&quot;color: rgb(211, 215, 222);&quot; class=&quot;token token&quot;&gt;(&lt;/span&gt;d&lt;span style=&quot;color: rgb(211, 215, 222);&quot; class=&quot;token token&quot;&gt;,&lt;/span&gt; &lt;span style=&quot;color: rgb(94, 237, 237);&quot; class=&quot;token token&quot;&gt;1&lt;/span&gt;&lt;span style=&quot;color: rgb(211, 215, 222);&quot; class=&quot;token token&quot;&gt;,&lt;/span&gt; ql&lt;span style=&quot;color: rgb(211, 215, 222);&quot; class=&quot;token token&quot;&gt;.&lt;/span&gt;Days&lt;span style=&quot;color: rgb(211, 215, 222);&quot; class=&quot;token token&quot;&gt;)&lt;/span&gt;&lt;br&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="710" y="150" width="230" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="F1T_GgzjREKyvWTFukb6-10" value="les jours fériers entre:&amp;nbsp;&lt;div&gt;ql&lt;span style=&quot;color: rgb(211, 215, 222);&quot; class=&quot;token token&quot;&gt;.&lt;/span&gt;Calendar&lt;span style=&quot;color: rgb(211, 215, 222);&quot; class=&quot;token token&quot;&gt;.&lt;/span&gt;holidayList&lt;span style=&quot;color: rgb(211, 215, 222);&quot; class=&quot;token token&quot;&gt;(&lt;/span&gt;calendar&lt;span style=&quot;color: rgb(211, 215, 222);&quot; class=&quot;token token&quot;&gt;,&lt;/span&gt; d1&lt;span style=&quot;color: rgb(211, 215, 222);&quot; class=&quot;token token&quot;&gt;,&lt;/span&gt;&amp;nbsp;d2&lt;span style=&quot;color: rgb(211, 215, 222);&quot; class=&quot;token token&quot;&gt;)&lt;/span&gt;&lt;br&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="340" y="120" width="250" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="F1T_GgzjREKyvWTFukb6-15" value="count number days ouvert entre :&lt;br&gt;calendar&lt;span style=&quot;color: rgb(211, 215, 222);&quot; class=&quot;token token&quot;&gt;.&lt;/span&gt;businessDaysBetween&lt;span style=&quot;color: rgb(211, 215, 222);&quot; class=&quot;token token&quot;&gt;(&lt;/span&gt;d1&lt;span style=&quot;color: rgb(211, 215, 222);&quot; class=&quot;token token&quot;&gt;,&lt;/span&gt; d2&lt;span style=&quot;color: rgb(211, 215, 222);&quot; class=&quot;token token&quot;&gt;)&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="750" y="240" width="310" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="F1T_GgzjREKyvWTFukb6-28" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="F1T_GgzjREKyvWTFukb6-17" target="F1T_GgzjREKyvWTFukb6-23">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="F1T_GgzjREKyvWTFukb6-17" value="Marchés&amp;nbsp;&lt;div&gt;(m)&lt;/div&gt;" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-95" y="612.5" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="F1T_GgzjREKyvWTFukb6-23" value="&lt;div&gt;les objects type market :&amp;nbsp;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;ql&lt;span style=&quot;color: rgb(211, 215, 222);&quot; class=&quot;token token&quot;&gt;.&lt;/span&gt;UnitedStates&lt;span style=&quot;color: rgb(211, 215, 222);&quot; class=&quot;token token&quot;&gt;.&lt;/span&gt;NYSE&lt;div&gt;&lt;div&gt;ql&lt;span style=&quot;color: rgb(211, 215, 222);&quot; class=&quot;token token&quot;&gt;.&lt;/span&gt;UnitedStates&lt;span style=&quot;color: rgb(211, 215, 222);&quot; class=&quot;token token&quot;&gt;.&lt;/span&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;Settlement&lt;/span&gt;&lt;br&gt;&lt;/div&gt;&lt;span style=&quot;color: rgb(211, 215, 222);&quot; class=&quot;token token&quot;&gt;&lt;/span&gt;&lt;span style=&quot;color: rgb(211, 215, 222);&quot; class=&quot;token token&quot;&gt;&lt;/span&gt;&lt;div&gt;&lt;div&gt;ql&lt;span style=&quot;color: rgb(211, 215, 222);&quot; class=&quot;token token&quot;&gt;.&lt;/span&gt;UnitedStates&lt;span style=&quot;color: rgb(211, 215, 222);&quot; class=&quot;token token&quot;&gt;.&lt;/span&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;GovernmentBond&lt;/span&gt;&lt;br&gt;&lt;/div&gt;&lt;span style=&quot;color: rgb(211, 215, 222);&quot; class=&quot;token token&quot;&gt;&lt;/span&gt;&lt;span style=&quot;color: rgb(211, 215, 222);&quot; class=&quot;token token&quot;&gt;&lt;/span&gt;&lt;span style=&quot;color: rgb(211, 215, 222);&quot; class=&quot;token token&quot;&gt;&lt;/span&gt;&lt;span style=&quot;color: rgb(211, 215, 222);&quot; class=&quot;token token&quot;&gt;&lt;/span&gt;&lt;div&gt;&lt;div&gt;ql&lt;span style=&quot;color: rgb(211, 215, 222);&quot; class=&quot;token token&quot;&gt;.&lt;/span&gt;UnitedStates&lt;span style=&quot;color: rgb(211, 215, 222);&quot; class=&quot;token token&quot;&gt;.&lt;/span&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;NERC&lt;/span&gt;&lt;br&gt;&lt;/div&gt;&lt;span style=&quot;color: rgb(211, 215, 222);&quot; class=&quot;token token&quot;&gt;&lt;/span&gt;&lt;span style=&quot;color: rgb(211, 215, 222);&quot; class=&quot;token token&quot;&gt;&lt;/span&gt;&lt;span style=&quot;color: rgb(211, 215, 222);&quot; class=&quot;token token&quot;&gt;&lt;/span&gt;&lt;span style=&quot;color: rgb(211, 215, 222);&quot; class=&quot;token token&quot;&gt;&lt;/span&gt;&lt;div&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;ql&lt;/span&gt;&lt;span style=&quot;background-color: initial; color: rgb(211, 215, 222);&quot; class=&quot;token token&quot;&gt;.&lt;/span&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;UnitedStates&lt;/span&gt;&lt;span style=&quot;background-color: initial; color: rgb(211, 215, 222);&quot; class=&quot;token token&quot;&gt;.&lt;/span&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;FederalReserve&lt;/span&gt;&lt;/div&gt;&lt;span style=&quot;color: rgb(211, 215, 222);&quot; class=&quot;token token&quot;&gt;&lt;/span&gt;&lt;span style=&quot;color: rgb(211, 215, 222);&quot; class=&quot;token token&quot;&gt;&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-140" y="437.5" width="210" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="F1T_GgzjREKyvWTFukb6-26" value="&lt;div&gt;les objects type calendar :&amp;nbsp;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;ql.UnitedStates(m)&amp;nbsp;&lt;div&gt;ql.Germany(&lt;span style=&quot;background-color: initial;&quot;&gt;m&lt;/span&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;)&lt;/span&gt;&lt;/div&gt;&lt;div&gt;ql.Italy(&lt;span style=&quot;background-color: initial;&quot;&gt;m&lt;/span&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;)&lt;/span&gt;&lt;/div&gt;&lt;div&gt;ql.UnitedKingdom(&lt;span style=&quot;background-color: initial;&quot;&gt;m&lt;/span&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;)&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;ql.TARGET(&lt;span style=&quot;background-color: initial;&quot;&gt;m&lt;/span&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;)&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;← calendrier €uro interbancaire (BCE)&lt;/span&gt;&lt;/div&gt;&lt;div&gt;ql.Japan(&lt;span style=&quot;background-color: initial;&quot;&gt;m&lt;/span&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;)&lt;/span&gt;&lt;/div&gt;&lt;div&gt;ql.China(&lt;span style=&quot;background-color: initial;&quot;&gt;m&lt;/span&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;)&lt;/span&gt;&lt;/div&gt;&lt;div&gt;ql.Switzerland(&lt;span style=&quot;background-color: initial;&quot;&gt;m&lt;/span&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;)&amp;nbsp;&lt;/span&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="540" y="400" width="330" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="F1T_GgzjREKyvWTFukb6-33" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="F1T_GgzjREKyvWTFukb6-31" target="F1T_GgzjREKyvWTFukb6-32">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="F1T_GgzjREKyvWTFukb6-37" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="F1T_GgzjREKyvWTFukb6-31" target="F1T_GgzjREKyvWTFukb6-36">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="F1T_GgzjREKyvWTFukb6-31" value="SETTINGS&amp;nbsp;&lt;div&gt;(s)&lt;/div&gt;" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="110" y="-80" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="F1T_GgzjREKyvWTFukb6-32" value="object type settings :&amp;nbsp;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;s&amp;nbsp;&lt;span style=&quot;color: rgb(234, 236, 240);&quot; class=&quot;token token&quot;&gt;=&lt;/span&gt; ql&lt;span style=&quot;color: rgb(211, 215, 222);&quot; class=&quot;token token&quot;&gt;.&lt;/span&gt;Settings&lt;span style=&quot;color: rgb(211, 215, 222);&quot; class=&quot;token token&quot;&gt;.&lt;/span&gt;instance&lt;span style=&quot;color: rgb(211, 215, 222);&quot; class=&quot;token token&quot;&gt;(&lt;/span&gt;&lt;span style=&quot;color: rgb(211, 215, 222);&quot; class=&quot;token token&quot;&gt;)&lt;/span&gt;&lt;br&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="290" y="-70" width="230" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="F1T_GgzjREKyvWTFukb6-34" value="lire la date actuelle :&amp;nbsp;&lt;div&gt;s&lt;span style=&quot;color: rgb(211, 215, 222);&quot; class=&quot;token token&quot;&gt;.&lt;/span&gt;evaluationDate&lt;br&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="81" y="-210" width="150" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="F1T_GgzjREKyvWTFukb6-36" value="&lt;div&gt;Changer la date → tous les instruments se recalculent :&lt;br&gt;&lt;/div&gt;s&lt;span style=&quot;color: rgb(211, 215, 222);&quot; class=&quot;token token&quot;&gt;.&lt;/span&gt;evaluationDate&amp;nbsp; &lt;span style=&quot;color: rgb(234, 236, 240);&quot; class=&quot;token token&quot;&gt;= d&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-280" y="-65" width="330" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="F1T_GgzjREKyvWTFukb6-38" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.593;entryY=1.04;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="F1T_GgzjREKyvWTFukb6-31" target="F1T_GgzjREKyvWTFukb6-34">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="F1T_GgzjREKyvWTFukb6-43" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="F1T_GgzjREKyvWTFukb6-41" target="F1T_GgzjREKyvWTFukb6-42">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="F1T_GgzjREKyvWTFukb6-51" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="F1T_GgzjREKyvWTFukb6-41">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-670" y="497.5" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="F1T_GgzjREKyvWTFukb6-53" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="F1T_GgzjREKyvWTFukb6-41" target="F1T_GgzjREKyvWTFukb6-52">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="F1T_GgzjREKyvWTFukb6-55" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="F1T_GgzjREKyvWTFukb6-41" target="F1T_GgzjREKyvWTFukb6-54">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="F1T_GgzjREKyvWTFukb6-41" value="DayCounter  &lt;div&gt;(dc)&lt;/div&gt;" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-610" y="457.5" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="F1T_GgzjREKyvWTFukb6-42" value="&lt;div&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;Les objects type Day Convensions :&amp;nbsp;&lt;/span&gt;&lt;br&gt;&lt;/div&gt;ql&lt;span style=&quot;color: rgb(211, 215, 222);&quot; class=&quot;token token&quot;&gt;.&lt;/span&gt;Actual365Fixed&lt;span style=&quot;color: rgb(211, 215, 222);&quot; class=&quot;token token&quot;&gt;(&lt;/span&gt;&lt;span style=&quot;color: rgb(211, 215, 222);&quot; class=&quot;token token&quot;&gt;)&lt;/span&gt;      &lt;span style=&quot;color: rgb(129, 136, 152);&quot; class=&quot;token token&quot;&gt;# jours réels / 365        ← commodités, options&lt;/span&gt;&lt;br&gt;ql&lt;span style=&quot;color: rgb(211, 215, 222);&quot; class=&quot;token token&quot;&gt;.&lt;/span&gt;Actual360&lt;span style=&quot;color: rgb(211, 215, 222);&quot; class=&quot;token token&quot;&gt;(&lt;/span&gt;&lt;span style=&quot;color: rgb(211, 215, 222);&quot; class=&quot;token token&quot;&gt;)&lt;/span&gt;           &lt;span style=&quot;color: rgb(129, 136, 152);&quot; class=&quot;token token&quot;&gt;# jours réels / 360        ← money market, LIBOR&lt;/span&gt;&lt;br&gt;ql&lt;span style=&quot;color: rgb(211, 215, 222);&quot; class=&quot;token token&quot;&gt;.&lt;/span&gt;Actual365NoLeap&lt;span style=&quot;color: rgb(211, 215, 222);&quot; class=&quot;token token&quot;&gt;(&lt;/span&gt;&lt;span style=&quot;color: rgb(211, 215, 222);&quot; class=&quot;token token&quot;&gt;)&lt;/span&gt;     &lt;span style=&quot;color: rgb(129, 136, 152);&quot; class=&quot;token token&quot;&gt;# jours réels / 365        ← ignore les 29 fév&lt;/span&gt;&lt;br&gt;ql&lt;span style=&quot;color: rgb(211, 215, 222);&quot; class=&quot;token token&quot;&gt;.&lt;/span&gt;ActualActual&lt;span style=&quot;color: rgb(211, 215, 222);&quot; class=&quot;token token&quot;&gt;(&lt;/span&gt;&lt;span style=&quot;color: rgb(211, 215, 222);&quot; class=&quot;token token&quot;&gt;)&lt;/span&gt;        &lt;span style=&quot;color: rgb(129, 136, 152);&quot; class=&quot;token token&quot;&gt;# jours réels / 365 ou 366 ← obligations d&#39;état&lt;/span&gt;&lt;br&gt;ql&lt;span style=&quot;color: rgb(211, 215, 222);&quot; class=&quot;token token&quot;&gt;.&lt;/span&gt;Thirty360&lt;span style=&quot;color: rgb(211, 215, 222);&quot; class=&quot;token token&quot;&gt;(&lt;/span&gt;&lt;span style=&quot;color: rgb(211, 215, 222);&quot; class=&quot;token token&quot;&gt;)&lt;/span&gt;           &lt;span style=&quot;color: rgb(129, 136, 152);&quot; class=&quot;token token&quot;&gt;# 30 jours/mois / 360      ← obligations corporate US&lt;/span&gt;&lt;br&gt;ql&lt;span style=&quot;color: rgb(211, 215, 222);&quot; class=&quot;token token&quot;&gt;.&lt;/span&gt;Business252&lt;span style=&quot;color: rgb(211, 215, 222);&quot; class=&quot;token token&quot;&gt;(&lt;/span&gt;&lt;span style=&quot;color: rgb(211, 215, 222);&quot; class=&quot;token token&quot;&gt;)&lt;/span&gt;         &lt;span style=&quot;color: rgb(129, 136, 152);&quot; class=&quot;token token&quot;&gt;# jours ouvrés / 252       ← Brésil, certains swaps&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-740" y="592.5" width="380" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="F1T_GgzjREKyvWTFukb6-44" value="&lt;div&gt;d&lt;span style=&quot;color: rgb(211, 215, 222);&quot; class=&quot;token token&quot;&gt;.&lt;/span&gt;year&lt;span style=&quot;color: rgb(211, 215, 222);&quot; class=&quot;token token&quot;&gt;(&lt;/span&gt;&lt;span style=&quot;color: rgb(211, 215, 222);&quot; class=&quot;token token&quot;&gt;)&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&amp;nbsp;d&lt;span style=&quot;color: rgb(211, 215, 222);&quot; class=&quot;token token&quot;&gt;.&lt;/span&gt;month&lt;span style=&quot;color: rgb(211, 215, 222);&quot; class=&quot;token token&quot;&gt;(&lt;/span&gt;&lt;span style=&quot;color: rgb(211, 215, 222);&quot; class=&quot;token token&quot;&gt;)&lt;/span&gt;&lt;br&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-171.25" y="325" width="87.5" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="F1T_GgzjREKyvWTFukb6-46" value="d&lt;span style=&quot;color: rgb(211, 215, 222);&quot; class=&quot;token token&quot;&gt;.&lt;/span&gt;dayOfMonth&lt;span style=&quot;color: rgb(211, 215, 222);&quot; class=&quot;token token&quot;&gt;(&lt;/span&gt;&lt;span style=&quot;color: rgb(211, 215, 222);&quot; class=&quot;token token&quot;&gt;)&lt;/span&gt; d&lt;span style=&quot;color: rgb(211, 215, 222);&quot; class=&quot;token token&quot;&gt;.&lt;/span&gt;weekday&lt;span style=&quot;color: rgb(211, 215, 222);&quot; class=&quot;token token&quot;&gt;(&lt;/span&gt;&lt;span style=&quot;color: rgb(211, 215, 222);&quot; class=&quot;token token&quot;&gt;)&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-387.5" y="200" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="F1T_GgzjREKyvWTFukb6-48" value="d2-d1 = #days" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-17.5" y="215" width="87.5" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="F1T_GgzjREKyvWTFukb6-50" value="&lt;span style=&quot;color: rgb(211, 215, 222);&quot; class=&quot;token token&quot;&gt;&lt;/span&gt;dc.yearFraction&lt;span style=&quot;color: rgb(211, 215, 222);&quot; class=&quot;token token&quot;&gt;(&lt;/span&gt;d1&lt;span style=&quot;color: rgb(211, 215, 222);&quot; class=&quot;token token&quot;&gt;,&lt;/span&gt; d2&lt;span style=&quot;color: rgb(211, 215, 222);&quot; class=&quot;token token&quot;&gt;)&lt;/span&gt;&amp;nbsp;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-810" y="481.25" width="140" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="F1T_GgzjREKyvWTFukb6-52" value="dc&lt;span style=&quot;color: rgb(211, 215, 222);&quot; class=&quot;token token&quot;&gt;.&lt;/span&gt;dayCount&lt;span style=&quot;color: rgb(211, 215, 222);&quot; class=&quot;token token&quot;&gt;(&lt;/span&gt;d1&lt;span style=&quot;color: rgb(211, 215, 222);&quot; class=&quot;token token&quot;&gt;,&lt;/span&gt; d2&lt;span style=&quot;color: rgb(211, 215, 222);&quot; class=&quot;token token&quot;&gt;)&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-610" y="365" width="120" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="F1T_GgzjREKyvWTFukb6-54" value="dc&lt;span style=&quot;color: rgb(211, 215, 222);&quot; class=&quot;token token&quot;&gt;.&lt;/span&gt;name&lt;span style=&quot;color: rgb(211, 215, 222);&quot; class=&quot;token token&quot;&gt;(&lt;/span&gt;&lt;span style=&quot;color: rgb(211, 215, 222);&quot; class=&quot;token token&quot;&gt;)&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-460" y="480" width="70" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="F1T_GgzjREKyvWTFukb6-62" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="F1T_GgzjREKyvWTFukb6-60" target="F1T_GgzjREKyvWTFukb6-61">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="F1T_GgzjREKyvWTFukb6-67" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="F1T_GgzjREKyvWTFukb6-60" target="F1T_GgzjREKyvWTFukb6-66">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="F1T_GgzjREKyvWTFukb6-69" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="F1T_GgzjREKyvWTFukb6-60" target="F1T_GgzjREKyvWTFukb6-68">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="F1T_GgzjREKyvWTFukb6-80" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="F1T_GgzjREKyvWTFukb6-60" target="F1T_GgzjREKyvWTFukb6-79">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="F1T_GgzjREKyvWTFukb6-60" value="Quote -&amp;nbsp; variable&lt;div&gt;(q)&lt;/div&gt;" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="286" y="760" width="130" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="F1T_GgzjREKyvWTFukb6-61" value="l&#39;objects type quote observable:&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;ql&lt;/span&gt;&lt;span style=&quot;background-color: initial; color: rgb(211, 215, 222);&quot; class=&quot;token token&quot;&gt;.&lt;/span&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;SimpleQuote&lt;/span&gt;&lt;span style=&quot;background-color: initial; color: rgb(211, 215, 222);&quot; class=&quot;token token&quot;&gt;(&lt;span style=&quot;color: rgb(94, 237, 237);&quot;&gt;NUMBER&lt;/span&gt;)&lt;/span&gt;&amp;nbsp;&lt;br&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="190" y="890" width="320" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="F1T_GgzjREKyvWTFukb6-65" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="F1T_GgzjREKyvWTFukb6-63" target="F1T_GgzjREKyvWTFukb6-64">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="F1T_GgzjREKyvWTFukb6-82" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="F1T_GgzjREKyvWTFukb6-63" target="F1T_GgzjREKyvWTFukb6-81">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="F1T_GgzjREKyvWTFukb6-84" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="F1T_GgzjREKyvWTFukb6-63" target="F1T_GgzjREKyvWTFukb6-83">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="F1T_GgzjREKyvWTFukb6-86" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="F1T_GgzjREKyvWTFukb6-63" target="F1T_GgzjREKyvWTFukb6-85">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="F1T_GgzjREKyvWTFukb6-63" value="Quote Handle - pointeur&lt;div&gt;(qh)&lt;/div&gt;" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="722.5" y="760" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="F1T_GgzjREKyvWTFukb6-64" value="&lt;div&gt;l&#39;object type quote Handle :&amp;nbsp;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;div&gt;ql.QuoteHandle(q)&amp;nbsp; # pointeur vers un Quote&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;/div&gt;" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="633.75" y="880" width="297.5" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="F1T_GgzjREKyvWTFukb6-66" value="q&lt;span style=&quot;color: rgb(211, 215, 222);&quot; class=&quot;token token&quot;&gt;.&lt;/span&gt;&lt;span&gt;value&lt;/span&gt;&lt;span style=&quot;color: rgb(211, 215, 222);&quot; class=&quot;token token&quot;&gt;(&lt;/span&gt;&lt;span style=&quot;color: rgb(211, 215, 222);&quot; class=&quot;token token&quot;&gt;)&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="110" y="785" width="109" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="F1T_GgzjREKyvWTFukb6-68" value="q&lt;span style=&quot;color: rgb(211, 215, 222);&quot; class=&quot;token token&quot;&gt;.&lt;/span&gt;setValue&lt;span style=&quot;color: rgb(211, 215, 222);&quot; class=&quot;token token&quot;&gt;(&lt;/span&gt;&lt;span style=&quot;color: rgb(94, 237, 237);&quot; class=&quot;token token&quot;&gt;NUMBER&lt;/span&gt;&lt;span style=&quot;color: rgb(211, 215, 222);&quot; class=&quot;token token&quot;&gt;)&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="290" y="650" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="F1T_GgzjREKyvWTFukb6-72" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="F1T_GgzjREKyvWTFukb6-70" target="F1T_GgzjREKyvWTFukb6-71">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="F1T_GgzjREKyvWTFukb6-92" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="F1T_GgzjREKyvWTFukb6-70" target="F1T_GgzjREKyvWTFukb6-91">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="F1T_GgzjREKyvWTFukb6-94" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="F1T_GgzjREKyvWTFukb6-70" target="F1T_GgzjREKyvWTFukb6-90">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="F1T_GgzjREKyvWTFukb6-96" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="F1T_GgzjREKyvWTFukb6-70" target="F1T_GgzjREKyvWTFukb6-95">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="F1T_GgzjREKyvWTFukb6-70" value="Quote Handle -relinkable pointeur&lt;div&gt;(qh)&lt;/div&gt;" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-259.9999999999999" y="1137" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="F1T_GgzjREKyvWTFukb6-71" value="les objects type quote Handle calculator :&amp;nbsp;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;color: rgb(129, 136, 152);&quot; class=&quot;token token&quot;&gt;# Ces objets sont LazyObject — ils recalculent quand notifiés&lt;/span&gt;&lt;br/&gt;ql&lt;span style=&quot;color: rgb(211, 215, 222);&quot; class=&quot;token token&quot;&gt;.&lt;/span&gt;BlackProcess&lt;span style=&quot;color: rgb(211, 215, 222);&quot; class=&quot;token token&quot;&gt;(&lt;/span&gt;&lt;span style=&quot;color: rgb(211, 215, 222);&quot; class=&quot;token token&quot;&gt;)&lt;/span&gt;       &lt;span style=&quot;color: rgb(129, 136, 152);&quot; class=&quot;token token&quot;&gt;# recalcule si F, r, ou σ changent&lt;/span&gt;&lt;br/&gt;ql&lt;span style=&quot;color: rgb(211, 215, 222);&quot; class=&quot;token token&quot;&gt;.&lt;/span&gt;VanillaOption&lt;span style=&quot;color: rgb(211, 215, 222);&quot; class=&quot;token token&quot;&gt;(&lt;/span&gt;&lt;span style=&quot;color: rgb(211, 215, 222);&quot; class=&quot;token token&quot;&gt;)&lt;/span&gt;      &lt;span style=&quot;color: rgb(129, 136, 152);&quot; class=&quot;token token&quot;&gt;# recalcule si le process change&lt;/span&gt;&lt;br/&gt;ql&lt;span style=&quot;color: rgb(211, 215, 222);&quot; class=&quot;token token&quot;&gt;.&lt;/span&gt;FlatForward&lt;span style=&quot;color: rgb(211, 215, 222);&quot; class=&quot;token token&quot;&gt;(&lt;/span&gt;&lt;span style=&quot;color: rgb(211, 215, 222);&quot; class=&quot;token token&quot;&gt;)&lt;/span&gt;        &lt;span style=&quot;color: rgb(129, 136, 152);&quot; class=&quot;token token&quot;&gt;# recalcule si le QuoteHandle change&lt;/span&gt;&lt;br&gt;&lt;/div&gt;" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-379.9999999999999" y="1260" width="360" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="F1T_GgzjREKyvWTFukb6-75" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="F1T_GgzjREKyvWTFukb6-73" target="F1T_GgzjREKyvWTFukb6-74">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="F1T_GgzjREKyvWTFukb6-98" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="F1T_GgzjREKyvWTFukb6-73" target="F1T_GgzjREKyvWTFukb6-97">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="F1T_GgzjREKyvWTFukb6-100" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="F1T_GgzjREKyvWTFukb6-73" target="F1T_GgzjREKyvWTFukb6-99">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="F1T_GgzjREKyvWTFukb6-102" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="F1T_GgzjREKyvWTFukb6-73" target="F1T_GgzjREKyvWTFukb6-101">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="F1T_GgzjREKyvWTFukb6-73" value="Term Structures — Yield courbes de taux&lt;div&gt;(curve)&lt;/div&gt;" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="198.5" y="1140" width="165" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="F1T_GgzjREKyvWTFukb6-74" value="objects type yield term structures :&amp;nbsp;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;ql.FlatForward()            &lt;font color=&quot;#818898&quot;&gt;# courbe plate (notre TP)&lt;/font&gt;&lt;br&gt;ql.ZeroCurve() &lt;font color=&quot;#818898&quot;&gt;&amp;nbsp;# depuis taux zéro&lt;/font&gt;&lt;br&gt;ql.DiscountCurve()&amp;nbsp;&lt;font color=&quot;#818898&quot;&gt; # depuis discount factors&lt;/font&gt;&lt;br&gt;ql.ForwardCurve() &lt;font color=&quot;#818898&quot;&gt;#&amp;nbsp; depuis taux forward&lt;/font&gt;&lt;br&gt;ql.PiecewiseYieldCurve() &lt;font color=&quot;#818898&quot;&gt;#&amp;nbsp; bootstrappée marché (production)&lt;/font&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;font color=&quot;#818898&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font color=&quot;#818898&quot;&gt;méthodes&amp;nbsp;&lt;/font&gt;LazyObject&amp;nbsp;&lt;font color=&quot;#818898&quot;&gt;: recalcule si QuoteHandle change&lt;br&gt;&lt;/font&gt;&lt;/div&gt;" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="99.75" y="1300" width="362.5" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="F1T_GgzjREKyvWTFukb6-78" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="F1T_GgzjREKyvWTFukb6-76" target="F1T_GgzjREKyvWTFukb6-77">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="F1T_GgzjREKyvWTFukb6-76" value="Term Structures — Vol surfaces de vol&amp;nbsp;&lt;div&gt;(surf)&lt;/div&gt;" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="635.1199999999999" y="1140" width="167.5" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="F1T_GgzjREKyvWTFukb6-77" value="objects type term structure -surface :&amp;nbsp;&lt;div&gt;&lt;br&gt;&lt;div&gt;&lt;div&gt;ql.BlackConstantVol()&amp;nbsp; &lt;font color=&quot;#818898&quot;&gt;# vol flat (notre TP)&lt;/font&gt;&lt;/div&gt;&lt;div&gt;ql.BlackVarianceSurface()&amp;nbsp; &amp;nbsp; &lt;font color=&quot;#818898&quot;&gt;# surface strike x maturité (Section 5)&lt;/font&gt;&lt;/div&gt;&lt;div&gt;ql.BlackVarianceCurve()&amp;nbsp; &amp;nbsp; &amp;nbsp; &lt;font color=&quot;#818898&quot;&gt;# courbe par strike, 1 maturité&lt;/font&gt;&lt;/div&gt;&lt;div&gt;ql.HestonBlackVolSurface()&amp;nbsp; &amp;nbsp;&lt;font color=&quot;#818898&quot;&gt;# vol depuis modèle Heston&lt;/font&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="530" y="1300" width="377.75" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="F1T_GgzjREKyvWTFukb6-79" value="q&lt;span style=&quot;color: rgb(211, 215, 222);&quot; class=&quot;token token&quot;&gt;.&lt;/span&gt;isValid&lt;span style=&quot;color: rgb(211, 215, 222);&quot; class=&quot;token token&quot;&gt;(&lt;/span&gt;&lt;span style=&quot;color: rgb(211, 215, 222);&quot; class=&quot;token token&quot;&gt;)&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="450" y="780" width="69" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="F1T_GgzjREKyvWTFukb6-81" value="qh&lt;span style=&quot;color: rgb(211, 215, 222);&quot; class=&quot;token token&quot;&gt;.&lt;/span&gt;value&lt;span style=&quot;color: rgb(211, 215, 222);&quot; class=&quot;token token&quot;&gt;(&lt;/span&gt;&lt;span style=&quot;color: rgb(211, 215, 222);&quot; class=&quot;token token&quot;&gt;)&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="897.5" y="775" width="75" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="F1T_GgzjREKyvWTFukb6-83" value="qh&lt;span style=&quot;color: rgb(211, 215, 222);&quot; class=&quot;token token&quot;&gt;.&lt;/span&gt;empty&lt;span style=&quot;color: rgb(211, 215, 222);&quot; class=&quot;token token&quot;&gt;(&lt;/span&gt;&lt;span style=&quot;color: rgb(211, 215, 222);&quot; class=&quot;token token&quot;&gt;)&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="745" y="690" width="75" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="F1T_GgzjREKyvWTFukb6-85" value="&lt;div&gt;&amp;nbsp;retourne l&#39;objet Quote sous-jacent&lt;br&gt;&lt;/div&gt;qh&lt;span style=&quot;color: rgb(211, 215, 222);&quot; class=&quot;token token&quot;&gt;.&lt;/span&gt;currentLink&lt;span style=&quot;color: rgb(211, 215, 222);&quot; class=&quot;token token&quot;&gt;(&lt;/span&gt;&lt;span style=&quot;color: rgb(211, 215, 222);&quot; class=&quot;token token&quot;&gt;)&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="560" y="767.5" width="135" height="65" as="geometry" />
+        </mxCell>
+        <mxCell id="F1T_GgzjREKyvWTFukb6-87" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" target="F1T_GgzjREKyvWTFukb6-88">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-136.38" y="1177" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="F1T_GgzjREKyvWTFukb6-88" value="qh&lt;span style=&quot;color: rgb(211, 215, 222);&quot; class=&quot;token token&quot;&gt;.&lt;/span&gt;value&lt;span style=&quot;color: rgb(211, 215, 222);&quot; class=&quot;token token&quot;&gt;(&lt;/span&gt;&lt;span style=&quot;color: rgb(211, 215, 222);&quot; class=&quot;token token&quot;&gt;)&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-81.38" y="1152" width="75" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="F1T_GgzjREKyvWTFukb6-90" value="qh&lt;span style=&quot;color: rgb(211, 215, 222);&quot; class=&quot;token token&quot;&gt;.&lt;/span&gt;empty&lt;span style=&quot;color: rgb(211, 215, 222);&quot; class=&quot;token token&quot;&gt;(&lt;/span&gt;&lt;span style=&quot;color: rgb(211, 215, 222);&quot; class=&quot;token token&quot;&gt;)&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-174.9999999999999" y="1067" width="75" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="F1T_GgzjREKyvWTFukb6-91" value="&lt;div&gt;&amp;nbsp;retourne l&#39;objet Quote sous-jacent&lt;br&gt;&lt;/div&gt;qh&lt;span style=&quot;color: rgb(211, 215, 222);&quot; class=&quot;token token&quot;&gt;.&lt;/span&gt;currentLink&lt;span style=&quot;color: rgb(211, 215, 222);&quot; class=&quot;token token&quot;&gt;(&lt;/span&gt;&lt;span style=&quot;color: rgb(211, 215, 222);&quot; class=&quot;token token&quot;&gt;)&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-424.9999999999999" y="1144.5" width="135" height="65" as="geometry" />
+        </mxCell>
+        <mxCell id="F1T_GgzjREKyvWTFukb6-95" value="&lt;span style=&quot;color: rgb(129, 136, 152);&quot; class=&quot;token token&quot;&gt;# swapper le Quote sous-jacent en live&lt;/span&gt;&lt;div&gt;&lt;span style=&quot;color: rgb(255, 255, 255); background-color: initial;&quot;&gt;qh&lt;/span&gt;&lt;span style=&quot;color: rgb(255, 255, 255); background-color: initial;&quot; class=&quot;token token&quot;&gt;.&lt;/span&gt;&lt;span style=&quot;color: rgb(255, 255, 255); background-color: initial;&quot;&gt;linkTo&lt;/span&gt;&lt;span style=&quot;color: rgb(255, 255, 255); background-color: initial;&quot; class=&quot;token token&quot;&gt;(&lt;/span&gt;&lt;span style=&quot;color: rgb(255, 255, 255); background-color: initial;&quot;&gt;q&lt;/span&gt;&lt;span style=&quot;color: rgb(255, 255, 255); background-color: initial;&quot; class=&quot;token token&quot;&gt;)&lt;/span&gt;&lt;br&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-335.9999999999999" y="1040" width="134" height="57.5" as="geometry" />
+        </mxCell>
+        <mxCell id="F1T_GgzjREKyvWTFukb6-97" value="curve.discount()" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="426" y="1160" width="104" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="F1T_GgzjREKyvWTFukb6-99" value="curve.zeroRate()" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="229" y="1060" width="104" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="F1T_GgzjREKyvWTFukb6-101" value="curve.forwardRate()" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="20" y="1160" width="126.5" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="F1T_GgzjREKyvWTFukb6-104" value="── Quotes &amp;amp; Handles ───" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="470" y="630" width="170" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
