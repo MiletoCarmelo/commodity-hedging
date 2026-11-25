@@ -7,6 +7,7 @@ Notes on how the pricer and the hedging bot work. Open this folder as an Obsidia
 - [Pipeline](Pipeline.md): what happens from contract to greeks
 - [Roadmap](Roadmap.md): where the repo is going
 - [Math](Math.md): all the formulas used in the code
+- [Options](Options.md): which option for which exposure (long/short delta, gamma, vega), and how to hedge each greek
 - Code, one note per package:
   - [instruments](code/instruments.md): the contract
   - [market](code/market.md): market data and conventions

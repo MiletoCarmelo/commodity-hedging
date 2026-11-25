@@ -54,7 +54,21 @@ What a risk desk computes every day on the book: how much can it lose, and does 
 - [ ] daily risk report: P&L and explain, VaR and ES, limit usage, stress results on one page
       (extends `daily_report`)
 
-## 4. Futures curve and roll
+## 4. Options strategies and greek hedging (next)
+
+Why a desk takes a given options position, and how it hedges more than the delta.
+Cheat sheet: [Options](Options.md).
+
+- [ ] vanilla options on futures (Black-76 with QuantLib), analytic greeks checked against
+      bump-and-reprice
+- [ ] strategy builder: straddle, strangle, call/put spreads, butterfly, risk reversal
+- [ ] notebook: the building blocks, their payoff and the sign of each greek
+- [ ] notebook: strategies, the view each one expresses and its greek profile
+- [ ] notebook: trading vol, a delta-hedged straddle, implied vs realised (gamma scalping)
+- [ ] gamma and vega hedging in the bot: options as hedge instruments, then futures for delta
+- [ ] VaR and P&L explain with delta-only vs delta + gamma + vega hedging
+
+## 5. Futures curve and roll
 
 The bot first runs with one forward per underlying. Real hedges sit in a given contract month,
 and the risk between contract months (calendar spreads, butterflies) needs a curve to move.
@@ -70,7 +84,7 @@ and the risk between contract months (calendar spreads, butterflies) needs a cur
 - [x] daily report: exposure per contract, trades with their reason, expiries, P&L explain
 - [ ] hedge in a chosen month (the most liquid) and roll with calendar spreads before expiry
 
-## 5. Systematic strategy (later)
+## 6. Systematic strategy (later)
 
 Turn the hedging bot into the execution engine of a rules-based strategy, for example trading
 implied against realised volatility. Needs market option prices for the implied side.
