@@ -85,10 +85,12 @@ selling**, not on call or put. A future has gamma 0, so only an option can hedge
 
 Example: long call, delta +0.3, gamma +0.03, hedged with −0.3 future (K=83, F=75, σ=32%, 3m).
 
-| Brent | Call delta | Future | Total delta | To re-hedge |
-|---|---|---|---|---|
-| 75 → 80 (+5) | 0.3 + 5 × 0.03 ≈ **0.44** | −0.3 | **+0.14** | sell 0.14 future: **sell high** |
-| 75 → 70 (−5) | 0.3 − 5 × 0.03 ≈ **0.16** | −0.3 | **−0.14** | buy 0.14 future: **buy low** |
+| Brent move | Start delta | Gamma | Delta change = gamma × move | New call delta | Future | Total delta | To re-hedge |
+|---|---|---|---|---|---|---|---|
+| +5 $ (75 → 80) | +0.3 | +0.03 | +0.03 × 5 = **+0.15** | ≈ 0.44 | −0.3 | **+0.14** | sell 0.14 future: **sell high** |
+| −5 $ (75 → 70) | +0.3 | +0.03 | +0.03 × (−5) = **−0.15** | ≈ 0.16 | −0.3 | **−0.14** | buy 0.14 future: **buy low** |
+
+(0.15 vs 0.14: gamma itself moves a bit along the way; exact values from QuantLib.)
 
 Long gamma re-hedges by selling high and buying low, so it gains. Short gamma does the opposite
 (buys high, sells low) and loses. On 10,000 bbl, re-hedging 0.14 means 1,400 bbl of futures.
