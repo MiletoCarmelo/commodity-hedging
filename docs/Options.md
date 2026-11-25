@@ -71,6 +71,28 @@ Only the **sign of the delta** matters, not call or put. The delta hedge is alwa
 On 10,000 bbl of options, delta 0.3 means 3,000 bbl of futures. A single option never changes
 sign; a book mixing several options (a straddle, say) can.
 
+### Gamma, by position
+
+Gamma = how much the delta moves when the future moves by 1 $. It depends only on **buying or
+selling**, not on call or put. A future has gamma 0, so only an option can hedge gamma.
+
+| I have | Gamma | Example | After the delta hedge, the Brent moves | To hedge it, I do |
+|---|---|---|---|---|
+| Long call | always + | +0.03 | I gain, whatever the direction | **Sell** an option |
+| Long put | always + | +0.03 | I gain, whatever the direction | **Sell** an option |
+| Short call | always − | −0.03 | I lose, whatever the direction | **Buy** an option |
+| Short put | always − | −0.03 | I lose, whatever the direction | **Buy** an option |
+
+Example: long call, delta +0.3, gamma +0.03, hedged with −0.3 future (K=83, F=75, σ=32%, 3m).
+
+| Brent | Call delta | Future | Total delta | To re-hedge |
+|---|---|---|---|---|
+| 75 → 80 (+5) | 0.3 + 5 × 0.03 ≈ **0.44** | −0.3 | **+0.14** | sell 0.14 future: **sell high** |
+| 75 → 70 (−5) | 0.3 − 5 × 0.03 ≈ **0.16** | −0.3 | **−0.14** | buy 0.14 future: **buy low** |
+
+Long gamma re-hedges by selling high and buying low, so it gains. Short gamma does the opposite
+(buys high, sells low) and loses. On 10,000 bbl, re-hedging 0.14 means 1,400 bbl of futures.
+
 ## Hedging the greeks
 
 | Greek to neutralise | With | Why |
