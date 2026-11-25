@@ -56,6 +56,21 @@ table above.)
 | Short vega | **Buy** options, preferably longer-dated |
 | Theta | not hedged on its own: it goes away with the gamma |
 
+### Delta hedge, by position
+
+Only the **sign of the delta** matters, not call or put. The delta hedge is always futures
+(a future has delta 1).
+
+| I have | Possible delta | Example | To hedge it, I do |
+|---|---|---|---|
+| Long call | 0 to +1 (always +) | +0.3 | **Sell** 0.3 future |
+| Long put | −1 to 0 (always −) | −0.3 | **Buy** 0.3 future |
+| Short call | −1 to 0 (always −) | −0.3 | **Buy** 0.3 future |
+| Short put | 0 to +1 (always +) | +0.3 | **Sell** 0.3 future |
+
+On 10,000 bbl of options, delta 0.3 means 3,000 bbl of futures. A single option never changes
+sign; a book mixing several options (a straddle, say) can.
+
 ## Hedging the greeks
 
 | Greek to neutralise | With | Why |
