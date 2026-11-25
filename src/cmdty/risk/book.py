@@ -21,7 +21,7 @@ if TYPE_CHECKING:  # avoid a circular import, only for type hints
 
 def _is_alive(trade: Trade, pricer: "Pricer") -> bool:
     """Still has a value: the payoff has not been paid yet."""
-    return pricer.market.today <= trade.instrument.schedule.pay_date
+    return pricer.market.today <= trade.instrument.pay_date
 
 
 def trade_pv(trade: Trade, pricer: "Pricer") -> float:
@@ -47,6 +47,8 @@ def contract_weights(trade: Trade, pricer: "Pricer") -> dict[tuple[str, str], fl
     Keys are (underlying, "YYYY-MM") of the delivery month.
     """
     apo, market = trade.instrument, pricer.market
+    if not hasattr(apo, "schedule"):  # vanilla option: one futures contract
+        return {(apo.underlying, apo.contract): 1.0}
     state = averaging_state(apo, market)
     remaining = apo.schedule.future_fixings(market.today, state.today_fixed)
     weights: dict[tuple[str, str], float] = {}

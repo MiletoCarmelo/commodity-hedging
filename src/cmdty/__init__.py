@@ -10,7 +10,7 @@ Layout
     hedging/      the hedging bot: daily loop, futures position, P&L
     data/         market data download and estimation (optional extra)
 """
-from .instruments import AveragingSchedule, Leg, OptionType, APO
+from .instruments import AveragingSchedule, Leg, OptionType, APO, VanillaOption
 from .market import (GAL_PER_BBL, DateRange, MarketData, Quote, business_days, cme_calendar,
                      flat_discount_factor, ice_futures_europe_calendar, implied_vol_black76,
                      joint_calendar, nymex_calendar)
@@ -18,6 +18,6 @@ from .portfolio import Portfolio, Trade, load_portfolio
 from .pricer import Pricer
 from .risk import GreekCalculator, Greeks, SpreadGreekCalculator
 
-__all__ = ["Portfolio", "Trade", "load_portfolio", "AveragingSchedule", "Leg", "OptionType", "APO", "DateRange", "MarketData", "Quote", "Pricer", "GreekCalculator", "Greeks", "SpreadGreekCalculator", "GAL_PER_BBL",
+__all__ = ["Portfolio", "Trade", "load_portfolio", "AveragingSchedule", "Leg", "OptionType", "APO", "VanillaOption", "DateRange", "MarketData", "Quote", "Pricer", "GreekCalculator", "Greeks", "SpreadGreekCalculator", "GAL_PER_BBL",
            "business_days", "cme_calendar", "flat_discount_factor", "ice_futures_europe_calendar",
            "implied_vol_black76", "joint_calendar", "nymex_calendar"]

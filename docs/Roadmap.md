@@ -59,10 +59,10 @@ What a risk desk computes every day on the book: how much can it lose, and does 
 Why a desk takes a given options position, and how it hedges more than the delta.
 Cheat sheet: [Options](Options.md).
 
-- [ ] vanilla options on futures (Black-76 with QuantLib), analytic greeks checked against
+- [x] vanilla options on futures (Black-76 with QuantLib), analytic greeks checked against
       bump-and-reprice
-- [ ] strategy builder: straddle, strangle, call/put spreads, butterfly, risk reversal
-- [ ] notebook: the building blocks, their payoff and the sign of each greek
+- [x] strategy builder: straddle, strangle, call/put spreads, butterfly, risk reversal
+- [x] notebook: the building blocks, their payoff and the sign of each greek (notebook 07)
 - [ ] notebook: strategies, the view each one expresses and its greek profile
 - [ ] notebook: trading vol, a delta-hedged straddle, implied vs realised (gamma scalping)
 - [ ] gamma and vega hedging in the bot: options as hedge instruments, then futures for delta

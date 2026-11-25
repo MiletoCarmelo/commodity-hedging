@@ -50,3 +50,12 @@ Kirk only prices two legs of opposite sign, Bachelier and Monte Carlo take any n
 APOs are European. The payoff needs the whole month average, so nothing can be exercised
 early: it's auto-exercised at the end and paid in cash. If you want out before, you unwind
 it at its PV, which is what `Pricer.pv` gives at any date.
+
+## VanillaOption
+
+`VanillaOption(underlying, contract, strike, option_type, quantity, expiry)`: a European option
+on one futures contract, cash-settled at expiry. Priced with QuantLib's Black-76
+(`models/black76.py`, Bachelier if the pricer's model is `bachelier`); closed-form greeks from
+`ql.BlackCalculator` check the bump-and-reprice ones. In a portfolio YAML: `type: vanilla`.
+Strategies built from it (straddle, strangle, spreads, butterfly, risk reversal) are in
+`cmdty/strategies.py`, with `position_greeks` to add up a position's greeks.

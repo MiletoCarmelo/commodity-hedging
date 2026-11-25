@@ -11,7 +11,7 @@ from typing import Any
 import yaml
 from pydantic import BaseModel, ConfigDict, Field, model_validator
 
-from .instruments import APO
+from .instruments import APO, VanillaOption
 from .market.calendars import joint_exchange_calendar
 
 # =============================================================================
@@ -26,7 +26,15 @@ def _build_apo(terms: dict[str, Any]) -> APO:
     return APO.model_validate({**terms, "schedule": schedule})
 
 
-TRADE_TYPES: dict[str, Callable[[dict[str, Any]], Any]] = {"apo": _build_apo}
+def _build_vanilla(terms: dict[str, Any]) -> VanillaOption:
+    """Vanilla option on a futures contract, expiry as 'YYYY-MM-DD'."""
+    return VanillaOption.model_validate(terms)
+
+
+TRADE_TYPES: dict[str, Callable[[dict[str, Any]], Any]] = {
+    "apo": _build_apo,
+    "vanilla": _build_vanilla,
+}
 
 
 # =============================================================================

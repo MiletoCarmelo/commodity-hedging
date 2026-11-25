@@ -54,6 +54,12 @@ class APO(BaseModel):
             raise ValueError("quantity cannot be 0")
         return v
 
+    # --- dates ---
+    @property
+    def pay_date(self):
+        """Payment date of the payoff (same interface as VanillaOption)."""
+        return self.schedule.pay_date
+
     # --- legs ---
     @property
     def underlyings(self) -> list[str]:
