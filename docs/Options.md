@@ -95,6 +95,25 @@ Example: long call, delta +0.3, gamma +0.03, hedged with −0.3 future (K=83, F=
 Long gamma re-hedges by selling high and buying low, so it gains. Short gamma does the opposite
 (buys high, sells low) and loses. On 10,000 bbl, re-hedging 0.14 means 1,400 bbl of futures.
 
+So there are two ways to handle gamma:
+
+1. **Keep it** and re-hedge the delta with futures when the Brent moves (table above).
+2. **Remove it** with an option of opposite gamma, then reset the delta with futures (table below).
+
+### Gamma hedge: gamma first with an option, then delta with futures
+
+Same long call (K=83, F=75, σ=32%, 3m). Hedge option: ATM call K=75, same expiry
+(delta 0.53, gamma 0.033). Quantity to sell = 0.0285 / 0.033 ≈ **0.86**.
+
+| Step | Trade | Delta | Gamma | Total delta | Total gamma |
+|---|---|---|---|---|---|
+| Start | long 1 call K=83 | +0.29 | +0.0285 | +0.29 | +0.0285 |
+| 1. Gamma | sell 0.86 call K=75 | 0.86 × −0.53 = −0.46 | 0.86 × −0.033 = −0.0285 | −0.17 | **0** |
+| 2. Delta | buy 0.17 future | +0.17 | 0 | **0** | **0** |
+
+Step 1 fixes gamma but moves the delta (here from +0.29 to −0.17); step 2 fixes the delta
+without touching gamma. Never the other way round: a future has no gamma.
+
 ## Hedging the greeks
 
 | Greek to neutralise | With | Why |
