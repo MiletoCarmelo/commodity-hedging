@@ -41,6 +41,21 @@ Selling: you collect time decay, and lose when the market moves or vol rises.
 
 The trick: **gamma only depends on buying or selling**. Then **call or put** gives the delta.
 
+## I have … → to hedge it, I do …
+
+To **hedge**, take the **opposite** of what you have. (To take a view, take the same sign: the
+table above.)
+
+| I have | To hedge it, I do |
+|---|---|
+| Long delta (+0.3) | **Sell** futures (−0.3) |
+| Short delta (−0.3) | **Buy** futures (+0.3) |
+| Long gamma | **Sell** options, then reset the delta with futures |
+| Short gamma | **Buy** options, then reset the delta with futures |
+| Long vega | **Sell** options, preferably longer-dated |
+| Short vega | **Buy** options, preferably longer-dated |
+| Theta | not hedged on its own: it goes away with the gamma |
+
 ## Hedging the greeks
 
 | Greek to neutralise | With | Why |
