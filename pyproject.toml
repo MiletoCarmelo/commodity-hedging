@@ -7,7 +7,7 @@ dependencies = ["QuantLib>=1.30", "numpy>=1.24", "pydantic>=2.5", "holidays>=0.5
 
 [project.optional-dependencies]
 data = ["pandas>=2.0", "requests>=2.31"]
-notebooks = ["jupyterlab", "matplotlib", "pandas>=2.0"]
+notebooks = ["jupyterlab", "matplotlib", "pandas>=2.0", "ipywidgets>=8"]
 dev = ["pytest", "pandas>=2.0", "requests>=2.31"]
 
 [build-system]
