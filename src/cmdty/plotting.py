@@ -104,11 +104,13 @@ def ref_vline(ax, x: float, label: str, color: str = MUTED) -> None:
 
 def plot_curves(x, curves, *, title: str, subtitle: str | None = None, ylabel: str = "",
                 f0: float | None = None, payoff=None, color: str | None = None,
-                marker: str | None = None, xlabel: str = "future price, $/bbl", ax=None):
+                marker: str | None = None, fill: bool = False, legend: bool | None = None,
+                xlabel: str = "future price, $/bbl", ax=None):
     """One or several curves.
 
     `curves` is an array, or a dict {label: array} for several lines with a legend. `payoff`
     is drawn dashed (value at expiry); `f0`, if given, is marked by a dashed vertical line.
+    `fill` shades the area down to 0. `legend` defaults to: shown if more than one line.
     """
     if ax is None:
         _, ax = plt.subplots(figsize=(8, 4))
@@ -119,38 +121,57 @@ def plot_curves(x, curves, *, title: str, subtitle: str | None = None, ylabel: s
     colors = [color] if color and len(curves) == 1 else SERIES
     for c, (label, y) in zip(colors, curves.items()):
         ax.plot(x, y, color=c, linewidth=2, marker=marker, label=label)
+        if fill:
+            ax.fill_between(x, y, 0, color=c, alpha=0.10)
     ax.set_axisbelow(True)
     ax.axhline(0, color=MUTED, linewidth=1)
     if f0 is not None:
         ax.axvline(f0, color=MUTED, linewidth=1, linestyle=(0, (4, 3)))
     ax.set(xlabel=xlabel, ylabel=ylabel)
-    if payoff is not None or len(curves) > 1:
+    if legend if legend is not None else (payoff is not None or len(curves) > 1):
         ax.legend(frameon=False, loc="upper left")
     titles(ax, title, subtitle)
     return ax
 
 
-def plot_value(x, curves, *, title="Value", **kw):
-    """Option value, $/bbl. Same arguments as plot_curves."""
-    return plot_curves(x, curves, title=title, ylabel="value, $/bbl", **kw)
+def _greek_plot(title, ylabel, color):
+    def plot(x, curves, **kw):
+        kw.setdefault("title", title)
+        kw.setdefault("ylabel", ylabel)
+        if color:
+            kw.setdefault("color", color)
+        return plot_curves(x, curves, **kw)
+    plot.__doc__ = f"{title}: same arguments as plot_curves, title, ylabel and colour preset."
+    return plot
 
 
-def plot_delta(x, curves, *, title="Delta", **kw):
-    """Delta: change in value per 1 $ on the future."""
-    return plot_curves(x, curves, title=title, ylabel="delta", color=SERIES[1], **kw)
+plot_value = _greek_plot("Value", "value, $/bbl", None)
+plot_delta = _greek_plot("Delta", "delta", SERIES[1])
+plot_gamma = _greek_plot("Gamma", "gamma", SERIES[2])
+plot_vega = _greek_plot("Vega", "vega, $ per vol point", SERIES[3])
+plot_theta = _greek_plot("Theta", "theta, $ per day", SERIES[0])
 
 
-def plot_gamma(x, curves, *, title="Gamma", **kw):
-    """Gamma: change in delta per 1 $ on the future."""
-    return plot_curves(x, curves, title=title, ylabel="gamma", color=SERIES[2], **kw)
+# =============================================================================
+# 5. Surfaces: future price x strike
+# =============================================================================
 
 
-def plot_vega(x, curves, *, title="Vega", **kw):
-    """Vega: change in value per vol point, $/bbl."""
-    return plot_curves(x, curves, title=title, ylabel="vega, $ per vol point",
-                       color=SERIES[3], **kw)
-
-
-def plot_theta(x, curves, *, title="Theta", **kw):
-    """Theta: change in value per day, $/bbl."""
-    return plot_curves(x, curves, title=title, ylabel="theta, $ per day", color=SERIES[0], **kw)
+def plot_surface(X, Y, Z, *, title: str, f0: float | None = None, cmap: str = "Blues",
+                 zlim=None, xlabel: str = "future", ylabel: str = "strike",
+                 zlabel: str = "$/bbl", ax=None):
+    """3D surface Z(X, Y) from meshgrid arrays; `f0` draws the slice at today's future price."""
+    if ax is None:
+        ax = plt.figure(figsize=(6, 4.5)).add_subplot(projection="3d")
+    ax.plot_surface(X, Y, Z, cmap=cmap, linewidth=0, alpha=0.95)
+    if f0 is not None:
+        i0 = abs(X[0] - f0).argmin()
+        ax.plot(X[:, i0], Y[:, i0], Z[:, i0], color="white", linewidth=2)
+    ax.set(xlabel=xlabel, ylabel=ylabel, zlabel=zlabel)
+    if zlim:
+        ax.set_zlim(*zlim)
+    ax.view_init(25, -60)
+    ax.set_title(title, color=TEXT, fontsize=11)
+    for a in (ax.xaxis, ax.yaxis, ax.zaxis):
+        a.set_pane_color((0.1, 0.1, 0.1, 1))
+    return ax
