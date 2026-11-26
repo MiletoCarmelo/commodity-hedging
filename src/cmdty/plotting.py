@@ -102,54 +102,56 @@ def ref_vline(ax, x: float, label: str, color: str = MUTED) -> None:
 # =============================================================================
 
 
-def _new_ax(ax):
-    """Use the given axis, or a new chart if none."""
+def plot_curves(F, curves, *, f0: float, title: str, subtitle: str | None = None,
+                ylabel: str = "", payoff=None, ax=None, xlabel: str = "future price, $/bbl"):
+    """One or several curves against the future price.
+
+    `curves` is an array, or a dict {label: array} for several lines with a legend. `payoff`
+    is drawn dashed (value at expiry), the dashed vertical line marks f0.
+    """
     if ax is None:
         _, ax = plt.subplots(figsize=(8, 4))
-    return ax
-
-
-def _frame(ax, f0: float, xlabel: str) -> None:
-    """Grid behind, zero line, dashed line at today's future price."""
-    ax.set_axisbelow(True)
-    ax.axhline(0, color=MUTED, linewidth=1)
-    ax.axvline(f0, color=MUTED, linewidth=1, linestyle=(0, (4, 3)))
-    ax.set(xlabel=xlabel)
-
-
-def plot_value(F, curves: dict, *, f0: float, payoff=None, title: str = "Value",
-               subtitle: str | None = None, ax=None, xlabel: str = "future price, $/bbl"):
-    """Option value curves ({label: values}), with the payoff at expiry dashed."""
-    ax = _new_ax(ax)
+    if not isinstance(curves, dict):
+        curves = {None: curves}
     if payoff is not None:
         ax.plot(F, payoff, color=MUTED, linewidth=1.3, linestyle=(0, (4, 3)), label="at expiry")
     for color, (label, y) in zip(SERIES, curves.items()):
         ax.plot(F, y, color=color, linewidth=2, label=label)
-    _frame(ax, f0, xlabel)
-    ax.set(ylabel="value, $/bbl")
-    ax.legend(frameon=False, loc="upper left")
+    ax.set_axisbelow(True)
+    ax.axhline(0, color=MUTED, linewidth=1)
+    ax.axvline(f0, color=MUTED, linewidth=1, linestyle=(0, (4, 3)))
+    ax.set(xlabel=xlabel, ylabel=ylabel)
+    if payoff is not None or len(curves) > 1:
+        ax.legend(frameon=False, loc="upper left")
     titles(ax, title, subtitle)
     return ax
 
 
-def _plot_greek(F, y, *, f0, title, subtitle, ylabel, color, ax, xlabel):
-    ax = _new_ax(ax)
-    ax.plot(F, y, color=color, linewidth=2)
-    _frame(ax, f0, xlabel)
-    ax.set(ylabel=ylabel)
-    titles(ax, title, subtitle)
-    return ax
+def plot_value(F, curves, *, f0, subtitle=None, payoff=None, ax=None, title="Value"):
+    """Option value, $/bbl."""
+    return plot_curves(F, curves, f0=f0, title=title, subtitle=subtitle,
+                       ylabel="value, $/bbl", payoff=payoff, ax=ax)
 
 
-def plot_delta(F, delta, *, f0: float, subtitle: str = "slope of the value",
-               ax=None, xlabel: str = "future price, $/bbl"):
-    """Delta against the future price."""
-    return _plot_greek(F, delta, f0=f0, title="Delta", subtitle=subtitle, ylabel="delta",
-                       color=SERIES[1], ax=ax, xlabel=xlabel)
+def plot_delta(F, curves, *, f0, subtitle=None, payoff=None, ax=None, title="Delta"):
+    """Delta: change in value per 1 $ on the future."""
+    return plot_curves(F, curves, f0=f0, title=title, subtitle=subtitle, ylabel="delta",
+                       payoff=payoff, ax=ax)
 
 
-def plot_gamma(F, gamma, *, f0: float, subtitle: str = "slope of the delta",
-               ax=None, xlabel: str = "future price, $/bbl"):
-    """Gamma against the future price."""
-    return _plot_greek(F, gamma, f0=f0, title="Gamma", subtitle=subtitle, ylabel="gamma",
-                       color=SERIES[2], ax=ax, xlabel=xlabel)
+def plot_gamma(F, curves, *, f0, subtitle=None, payoff=None, ax=None, title="Gamma"):
+    """Gamma: change in delta per 1 $ on the future."""
+    return plot_curves(F, curves, f0=f0, title=title, subtitle=subtitle, ylabel="gamma",
+                       payoff=payoff, ax=ax)
+
+
+def plot_vega(F, curves, *, f0, subtitle=None, payoff=None, ax=None, title="Vega"):
+    """Vega: change in value per vol point, $/bbl."""
+    return plot_curves(F, curves, f0=f0, title=title, subtitle=subtitle,
+                       ylabel="vega, $ per vol point", payoff=payoff, ax=ax)
+
+
+def plot_theta(F, curves, *, f0, subtitle=None, payoff=None, ax=None, title="Theta"):
+    """Theta: change in value per day, $/bbl."""
+    return plot_curves(F, curves, f0=f0, title=title, subtitle=subtitle,
+                       ylabel="theta, $ per day", payoff=payoff, ax=ax)
