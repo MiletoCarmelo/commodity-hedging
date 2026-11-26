@@ -62,7 +62,7 @@ Cheat sheet: [Options](Options.md).
 - [x] vanilla options on futures (Black-76 with QuantLib), analytic greeks checked against
       bump-and-reprice
 - [x] strategy builder: straddle, strangle, call/put spreads, butterfly, risk reversal
-- [x] notebook: the building blocks, their payoff and the sign of each greek (notebook 07)
+- [x] notebook: the greeks in pictures and how to hedge them: delta with futures, gamma with options (notebook 07)
 - [ ] notebook: strategies, the view each one expresses and its greek profile
 - [ ] notebook: trading vol, a delta-hedged straddle, implied vs realised (gamma scalping)
 - [ ] gamma and vega hedging in the bot: options as hedge instruments, then futures for delta
