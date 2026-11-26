@@ -95,3 +95,57 @@ def ref_vline(ax, x: float, label: str, color: str = MUTED) -> None:
     ax.axvline(x, color=color, linewidth=1, linestyle=(0, (4, 3)), zorder=1)
     ax.annotate(label, xy=(x, 1), xycoords=("data", "axes fraction"), xytext=(4, -12),
                 textcoords="offset points", color=color, fontsize=9)
+
+
+# =============================================================================
+# 4. Option curves: one panel per greek, against the future price
+# =============================================================================
+
+_GREEKS = {  # name: (colour, y label, subtitle)
+    "delta": (SERIES[1], "delta", "slope of the value: an S from 0 to 1 (call)"),
+    "gamma": (SERIES[2], "gamma", "slope of the delta: a bell, largest near the strike"),
+    "vega": (SERIES[3], "vega, $ per vol point", "a bell, largest near the strike"),
+    "theta": (SERIES[0], "theta, $ per day", "a bell upside down for a bought option"),
+}
+
+
+def option_value(ax, F, value, *, f0: float, payoff=None, tangent=None,
+                 tangent_label: str = "delta approximation") -> None:
+    """Option value today, with optional payoff at expiry and tangent at f0."""
+    if payoff is not None:
+        ax.plot(F, payoff, color=MUTED, linewidth=1.3, linestyle=(0, (4, 3)), label="at expiry")
+    ax.plot(F, value, color=SERIES[0], linewidth=2, label="today")
+    if tangent is not None:
+        ax.plot(F, tangent, color=SERIES[1], linewidth=1.2, label=tangent_label)
+    ax.set(ylabel="value, $/bbl", xlabel="future price, $/bbl",
+           ylim=(min(value) - 2, max(value) * 1.1))
+    ax.set_axisbelow(True)
+    ax.axvline(f0, color=MUTED, linewidth=1, linestyle=(0, (4, 3)))
+    ax.legend(frameon=False, loc="upper left")
+    titles(ax, "Value", "flat on one side, slope 1 on the other, a curve in between")
+
+
+def greek_curve(ax, F, y, greek: str, *, f0: float) -> None:
+    """One greek ('delta', 'gamma', 'vega' or 'theta') against the future price."""
+    color, ylabel, subtitle = _GREEKS[greek]
+    ax.plot(F, y, color=color, linewidth=2)
+    ax.axhline(0, color=MUTED, linewidth=1)
+    ax.axvline(f0, color=MUTED, linewidth=1, linestyle=(0, (4, 3)))
+    ax.set(ylabel=ylabel, xlabel="future price, $/bbl")
+    ax.set_axisbelow(True)
+    titles(ax, greek.capitalize(), subtitle)
+
+
+def option_curves(F, value, greeks: dict, *, f0: float, payoff=None, tangent=None,
+                  tangent_label: str = "delta approximation"):
+    """Value on top, then one panel per greek in `greeks` ({'delta': array, ...})."""
+    n = 1 + len(greeks)
+    fig, axes = plt.subplots(n, 1, figsize=(8, 3.2 * n), sharex=True)
+    option_value(axes[0], F, value, f0=f0, payoff=payoff, tangent=tangent,
+                 tangent_label=tangent_label)
+    for ax, (name, y) in zip(axes[1:], greeks.items()):
+        greek_curve(ax, F, y, name, f0=f0)
+    for ax in axes[:-1]:
+        ax.set_xlabel("")
+    fig.tight_layout(h_pad=2)
+    return fig, axes
