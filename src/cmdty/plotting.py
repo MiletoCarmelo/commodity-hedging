@@ -105,12 +105,13 @@ def ref_vline(ax, x: float, label: str, color: str = MUTED) -> None:
 def plot_curves(x, curves, *, title: str, subtitle: str | None = None, ylabel: str = "",
                 f0: float | None = None, payoff=None, color: str | None = None,
                 marker: str | None = None, fill: bool = False, legend: bool | None = None,
-                xlabel: str = "future price, $/bbl", ax=None):
+                styles: dict | None = None, xlabel: str = "future price, $/bbl", ax=None):
     """One or several curves.
 
     `curves` is an array, or a dict {label: array} for several lines with a legend. `payoff`
     is drawn dashed (value at expiry); `f0`, if given, is marked by a dashed vertical line.
     `fill` shades the area down to 0. `legend` defaults to: shown if more than one line.
+    `styles` gives extra line settings per label, e.g. {"hedge": {"linestyle": "--"}}.
     """
     if ax is None:
         _, ax = plt.subplots(figsize=(8, 4))
@@ -120,9 +121,10 @@ def plot_curves(x, curves, *, title: str, subtitle: str | None = None, ylabel: s
         ax.plot(x, payoff, color=MUTED, linewidth=1.3, linestyle=(0, (4, 3)), label="at expiry")
     colors = [color] if color and len(curves) == 1 else SERIES
     for c, (label, y) in zip(colors, curves.items()):
-        ax.plot(x, y, color=c, linewidth=2, marker=marker, label=label)
+        style = {"color": c, "linewidth": 2, "marker": marker} | (styles or {}).get(label, {})
+        ax.plot(x, y, label=label, **style)
         if fill:
-            ax.fill_between(x, y, 0, color=c, alpha=0.10)
+            ax.fill_between(x, y, 0, color=style["color"], alpha=0.10)
     ax.set_axisbelow(True)
     ax.axhline(0, color=MUTED, linewidth=1)
     if f0 is not None:
@@ -174,4 +176,19 @@ def plot_surface(X, Y, Z, *, title: str, f0: float | None = None, cmap: str = "B
     ax.set_title(title, color=TEXT, fontsize=11)
     for a in (ax.xaxis, ax.yaxis, ax.zaxis):
         a.set_pane_color((0.1, 0.1, 0.1, 1))
+    return ax
+
+
+def plot_bars(values: dict, *, title: str, subtitle: str | None = None, ylabel: str = "",
+              colors=None, fmt: str = "{:+,.0f}", ax=None):
+    """One bar per {label: value}, value written on the bar."""
+    if ax is None:
+        _, ax = plt.subplots(figsize=(6, 4))
+    ax.set_axisbelow(True)
+    ax.bar(list(values), list(values.values()), color=colors or SERIES[:len(values)], width=0.5)
+    ax.axhline(0, color=MUTED, linewidth=1)
+    for i, v in enumerate(values.values()):
+        ax.text(i, v, fmt.format(v), ha="center", va="bottom" if v > 0 else "top", fontsize=11)
+    ax.set(ylabel=ylabel)
+    titles(ax, title, subtitle)
     return ax
