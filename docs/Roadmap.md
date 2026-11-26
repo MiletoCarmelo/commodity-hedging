@@ -63,6 +63,9 @@ Cheat sheet: [Options](Options.md).
       bump-and-reprice
 - [x] strategy builder: straddle, strangle, call/put spreads, butterfly, risk reversal
 - [x] notebook: the greeks in pictures and how to hedge them: delta with futures, gamma with options (notebook 07)
+- [ ] vol smile: price vanillas with `ql.VanillaOption` + `ql.BlackProcess` +
+  `ql.AnalyticEuropeanEngine` on a `ql.BlackVarianceSurface`, so each strike gets its own vol;
+  rename `VanillaOption` to `FuturesOption` at the same time (same name as QuantLib's class)
 - [ ] notebook: strategies, the view each one expresses and its greek profile
 - [ ] notebook: trading vol, a delta-hedged straddle, implied vs realised (gamma scalping)
 - [ ] gamma and vega hedging in the bot: options as hedge instruments, then futures for delta
