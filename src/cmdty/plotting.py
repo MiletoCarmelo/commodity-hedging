@@ -120,7 +120,8 @@ def plot_curves(x, curves, *, title: str, subtitle: str | None = None, ylabel: s
     if payoff is not None:
         ax.plot(x, payoff, color=MUTED, linewidth=1.3, linestyle=(0, (4, 3)), label="at expiry")
     colors = [color] if color and len(curves) == 1 else SERIES
-    for c, (label, y) in zip(colors, curves.items()):
+    for i, (label, y) in enumerate(curves.items()):
+        c = colors[i % len(colors)]
         style = {"color": c, "linewidth": 2, "marker": marker} | (styles or {}).get(label, {})
         ax.plot(x, y, label=label, **style)
         if fill:
