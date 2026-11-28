@@ -80,3 +80,16 @@ def test_vanilla_from_yaml_hedges_its_own_contract(pricer):
     risk = book_risk(book, pricer)
     assert list(risk.deltas_by_contract) == [("BRENT", "2027-03")]
     assert risk.deltas["BRENT"] == pytest.approx(risk.deltas_by_contract[("BRENT", "2027-03")])
+
+
+def test_collar_seagull_calendar_legs():
+    from cmdty.strategies import calendar_spread, collar, seagull
+    legs = collar("BRENT", "2027-03", "2027-02-25", 68.0, 82.0, 1.0)
+    assert [(x.instrument.option_type.value, x.instrument.quantity) for x in legs] == [
+        ("put", 1.0), ("call", -1.0)]
+    legs = seagull("BRENT", "2027-03", "2027-02-25", 60.0, 70.0, 82.0, 1.0)
+    assert [x.instrument.strike for x in legs] == [60.0, 70.0, 82.0]
+    assert [x.instrument.quantity for x in legs] == [-1.0, 1.0, -1.0]
+    legs = calendar_spread("BRENT", "2027-03", "2026-12-28", "2027-02-25", 75.0, 1.0)
+    assert [x.instrument.quantity for x in legs] == [-1.0, 1.0]
+    assert legs[0].instrument.expiry < legs[1].instrument.expiry

@@ -75,6 +75,35 @@ def risk_reversal(u: str, contract: str, expiry: str, k_put: float, k_call: floa
             option("put", u, contract, expiry, k_put, "put", -size)]
 
 
+def collar(u: str, contract: str, expiry: str, k_put: float, k_call: float,
+           size: float) -> list[Trade]:
+    """Buy put K1, sell call K2 (K1 < K2): a producer's floor, paid for by giving up the upside.
+
+    The opposite of a risk reversal.
+    """
+    return [option("put", u, contract, expiry, k_put, "put", size),
+            option("call", u, contract, expiry, k_call, "call", -size)]
+
+
+def seagull(u: str, contract: str, expiry: str, k_low: float, k_put: float, k_call: float,
+            size: float) -> list[Trade]:
+    """Collar plus a sold put K0 below the floor (K0 < K1 < K2), to cut its cost.
+
+    Below K0 the floor stops working: the producer is protected only between K0 and K1.
+    """
+    return [option("put low", u, contract, expiry, k_low, "put", -size),
+            option("put", u, contract, expiry, k_put, "put", size),
+            option("call", u, contract, expiry, k_call, "call", -size)]
+
+
+def calendar_spread(u: str, contract: str, near_expiry: str, far_expiry: str, k: float,
+                    size: float) -> list[Trade]:
+    """Sell a short-dated call K, buy a longer-dated call K. Bought: collects the fast theta of
+    the near option, long the vega of the far one."""
+    return [option("call near", u, contract, near_expiry, k, "call", -size),
+            option("call far", u, contract, far_expiry, k, "call", size)]
+
+
 # =============================================================================
 # 3. Greeks of a position
 # =============================================================================

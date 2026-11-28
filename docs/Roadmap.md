@@ -65,10 +65,11 @@ Cheat sheet: [Options](Options.md).
 - [x] notebook: the greeks in pictures and how to hedge them: delta with futures, gamma with options (notebook 07)
 - [x] greeks playground: sliders for future price, vol and time on a hedged book, with a P&L explain (notebook 08)
 - [x] P&L explain day by day, delta re-hedged daily: gamma against theta, plus vega; realised vs implied vol (notebook 09)
+- [ ] market data checks: stale prices, abnormal jumps, consistency between products
 - [ ] vol smile: price vanillas with `ql.VanillaOption` + `ql.BlackProcess` +
   `ql.AnalyticEuropeanEngine` on a `ql.BlackVarianceSurface`, so each strike gets its own vol;
   rename `VanillaOption` to `FuturesOption` at the same time (same name as QuantLib's class)
-- [ ] notebook: strategies, the view each one expresses and its greek profile
+- [x] notebook: strategies, the view each one expresses and its greek profile (notebook 10)
 - [ ] notebook: trading vol, a delta-hedged straddle, implied vs realised (gamma scalping)
 - [ ] gamma and vega hedging in the bot: options as hedge instruments, then futures for delta
 - [ ] VaR and P&L explain with delta-only vs delta + gamma + vega hedging
